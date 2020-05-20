@@ -79,7 +79,7 @@ public class Stream : MonoBehaviour
     private void AnimateToPosition(int index, Vector3 targetPosition)
     {
         Vector3 currentPoint = lineRenderer.GetPosition(index);//the current position of the linerender 
-        Vector3 newPosition = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime * 1.75f); //if wants faster modify this parameter, movetowards is used as animation
+        Vector3 newPosition = Vector3.MoveTowards(currentPoint, targetPosition, Time.deltaTime * 100f); //if wants faster modify this parameter, movetowards is used as animation
         lineRenderer.SetPosition(index, newPosition);//store the new position
     }
 
