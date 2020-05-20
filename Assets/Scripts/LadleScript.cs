@@ -15,12 +15,13 @@ public class LadleScript : MonoBehaviour
     public GameObject definedButton;
     public UnityEvent OnClick = new UnityEvent();
     Animator animator;
-    Quaternion originalRot; //variable to save the rotation of the object
-    Vector3 initialPos;
+    AudioSource audioSource;
+    //Quaternion originalRot; //variable to save the rotation of the object
+    //Vector3 initialPos;
  
 
-    public float mixSpeed = 100f;
-    public float rotateSpeed = 100f;
+    //public float mixSpeed = 100f;
+    //public float rotateSpeed = 100f;
 
     //// Start is called before the first frame update
     void Start()
@@ -29,8 +30,9 @@ public class LadleScript : MonoBehaviour
     {
         definedButton = this.gameObject;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         //originalRot = transform.localRotation;// to store the original rotation
-        initialPos = transform.localPosition;
+        //initialPos = transform.localPosition;
 
     }
 
@@ -48,16 +50,27 @@ public class LadleScript : MonoBehaviour
         {
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == gameObject)
             {
+
+                animator.SetTrigger("Mix");//inside the animator controller
+                if (!audioSource.isPlaying)                    //if the audio is not playing
+
+                {
+                    audioSource.Play();
+                }
+                else
+
+                {
+                    audioSource.Stop();
+                }
                 Debug.Log("button clicked");
-                transform.Translate(Vector3.forward * mixSpeed * Time.deltaTime);
+
+                //Invoke("ResetPosition", 5f);
+
+                //transform.Translate(Vector3.forward * mixSpeed * Time.deltaTime);
                 //transform.Translate(-Vector3.forward * mixSpeed * Time.deltaTime);
 
                 //transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
                 //transform.Rotate (-Vector3.up * rotateSpeed * Time.deltaTime);
-
-                animator.SetTrigger("Lumb");//inside the animator controller
-
-                Invoke("ResetPosition", 5f);
             }
 
 
