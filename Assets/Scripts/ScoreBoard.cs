@@ -5,7 +5,7 @@ using UnityEngine.UI;//need it for text and canvas
 
 public class ScoreBoard : MonoBehaviour
 {
-    [SerializeField] int scorePerSoap = 1;
+    [SerializeField] int scorePerSoap = 1;//maybe should be in teapot
 
     int score;
     Text scoreText;
