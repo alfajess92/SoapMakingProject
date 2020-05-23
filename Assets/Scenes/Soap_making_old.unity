@@ -504,8 +504,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23727095, y: 0.41225442, z: 0.19042678}
-  m_Center: {x: 0.000000078231096, y: -0.000000014901161, z: 0.09036919}
+  m_Size: {x: 0.37413085, y: 0.41225442, z: 0.19042678}
+  m_Center: {x: -0.0125369355, y: -0.000000014901161, z: 0.09036919}
 --- !u!114 &173637195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,6 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   definedButton: {fileID: 0}
+  waterAsh: {fileID: 0}
   OnClick:
     m_PersistentCalls:
       m_Calls: []

@@ -8,10 +8,10 @@ public class ServeWater : MonoBehaviour
 {
 
 
-
-    public GameObject definedButton;
+   
+    public GameObject definedButton, waterAsh;
     public UnityEvent OnClick = new UnityEvent();
-    Animator animator;
+    Animator animator, animatorWaterAsh;
     Vector3 position;
 
     //// Start is called before the first frame update
@@ -20,7 +20,9 @@ public class ServeWater : MonoBehaviour
 
     {
         definedButton = this.gameObject;
-        animator = GetComponentInParent<Animator>();
+        waterAsh = GameObject.Find("WaterProDaytime");
+        animator = GetComponent<Animator>();
+        animatorWaterAsh = waterAsh.GetComponent<Animator>();
 
         position = definedButton.transform.localPosition;
     }
@@ -40,7 +42,7 @@ public class ServeWater : MonoBehaviour
             {
 
                 animator.SetTrigger("Serve");//inside the animator controller
-
+                animatorWaterAsh.SetTrigger("Fill");
 
             }
 
