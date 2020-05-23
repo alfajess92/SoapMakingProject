@@ -16,7 +16,7 @@ public class LadleScript : MonoBehaviour
     Animator animator;
     AudioSource audioSource;
     ScoreBoard scoreBoard;
-
+    Vector3 position;
 
     //// Start is called before the first frame update
     void Start()
@@ -24,8 +24,10 @@ public class LadleScript : MonoBehaviour
 
     {
         definedButton = this.gameObject;
-        animator = GetComponent<Animator>();
+        animator = GetComponentInParent<Animator>();
+        
         audioSource = GetComponent<AudioSource>();
+        position = definedButton.transform.localPosition;
         scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
     }
 
@@ -51,14 +53,16 @@ public class LadleScript : MonoBehaviour
                 {
                     audioSource.Play();
                 }
-                else
+                //else
 
-                {
-                    audioSource.Stop();
-                }
+                //{
+                //    audioSource.Stop();
+                //}
                 //Debug.Log("button clicked");
                 
             }
+
+            
 
 
         }
