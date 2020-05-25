@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1901809428310299071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8568969996595194808}
+  m_Layer: 0
+  m_Name: Lights
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8568969996595194808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901809428310299071}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -636.149, y: 356.6675, z: 0.34749985}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4819927664621557718}
+  - {fileID: 4819927665484135498}
+  m_Father: {fileID: 4819927665921075625}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4819927665012621403
 AudioSource:
   m_ObjectHideFlags: 0
@@ -133,12 +165,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819927664621557713}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.702, y: 0.335, z: 1.091}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -636.851, y: -356.33252, z: -0.7435001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4819927665921075625}
-  m_RootOrder: 7
+  m_Father: {fileID: 8568969996595194808}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &4819927664621557719
 Light:
@@ -326,12 +358,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819927665484135493}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.377, y: 0.335, z: -0.396}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -635.772, y: -356.33252, z: 0.7434999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4819927665921075625}
-  m_RootOrder: 6
+  m_Father: {fileID: 8568969996595194808}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &4819927665484135499
 Light:
@@ -554,8 +586,7 @@ Transform:
   - {fileID: 8361786753546886162}
   - {fileID: 4819927666244752497}
   - {fileID: 4819927665928850476}
-  - {fileID: 4819927665484135498}
-  - {fileID: 4819927664621557718}
+  - {fileID: 8568969996595194808}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1699,15 +1730,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 9500000, guid: 76fe92569e6792048b2891a6793e885a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 76fe92569e6792048b2891a6793e885a, type: 3}
---- !u!4 &4819927666081069717 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 76fe92569e6792048b2891a6793e885a,
-    type: 3}
-  m_PrefabInstance: {fileID: 4819927666080669717}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4819927666080704181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 76fe92569e6792048b2891a6793e885a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4819927666080669717}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4819927666081069717 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 76fe92569e6792048b2891a6793e885a,
     type: 3}
   m_PrefabInstance: {fileID: 4819927666080669717}
   m_PrefabAsset: {fileID: 0}

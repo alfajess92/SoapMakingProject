@@ -2,23 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;//need it for text and canvas
+using UnityEngine.SceneManagement;
+
 
 public class ScoreBoard : MonoBehaviour
 {
     [SerializeField] int scorePerSoap = 1;//maybe should be in teapot
 
     int score;
-    Text scoreText;
+    Text scoreText, nextScene;
     // Start is called before the first frame update
     void Start()
     {
         scoreText = GetComponent<Text>();
         scoreText.text = score.ToString();
+        
     }
 
     public void ScoreSoap()
     {
-        score = score + scorePerSoap;
-        scoreText.text = "You made " + score.ToString() + " " + "soap!";
+        score += scorePerSoap;
+        scoreText.text = "+" + score.ToString();
+        NextLevel();
     }
+
+
+    public void NextLevel()
+    {
+        if (score >= 3)
+        {
+            //nextScene.text = "You are the master of soap making";
+            SceneManager.LoadScene(1);
+        }
+
+    }
+    
 }
