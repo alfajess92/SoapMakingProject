@@ -7,6 +7,7 @@ public class SpillScript : MonoBehaviour
     ParticleSystem waterStream;
     Transform teapotTransform;
     Vector3 position;
+    Quaternion rotation;
     AudioSource audioSource;
     public GameObject teapot;
     // Start is called before the first frame update
@@ -32,8 +33,11 @@ public class SpillScript : MonoBehaviour
         //    waterStream.Stop();
         //}
         position = teapotTransform.localPosition;
-        Debug.Log(position.y);
-        if (position.y >=0.15f)
+        rotation = teapotTransform.localRotation;
+        
+        Debug.Log(rotation.eulerAngles.y);
+        //if (position.y ==0.151f)
+        if (rotation.eulerAngles.y<= -80.0f)
         {
             waterStream.Play();
             if (!audioSource.isPlaying)                    //if the audio is not playing
@@ -43,6 +47,7 @@ public class SpillScript : MonoBehaviour
             }
         }
         else
+
         {
             waterStream.Stop();
             audioSource.Stop();

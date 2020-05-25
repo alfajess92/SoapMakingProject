@@ -8,7 +8,7 @@ using Vuforia;
 public class LadleScript : MonoBehaviour
 {
 
- 
+
 
 
     public GameObject definedButton;
@@ -17,6 +17,7 @@ public class LadleScript : MonoBehaviour
     AudioSource audioSource;
     ScoreBoard scoreBoard;
     Vector3 position;
+    //public AudioClip sound;
 
     //// Start is called before the first frame update
     void Start()
@@ -25,7 +26,6 @@ public class LadleScript : MonoBehaviour
     {
         definedButton = this.gameObject;
         animator = GetComponentInParent<Animator>();
-        
         audioSource = GetComponent<AudioSource>();
         position = definedButton.transform.localPosition;
         scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
@@ -44,25 +44,37 @@ public class LadleScript : MonoBehaviour
         {
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == gameObject)
             {
-
-                animator.SetTrigger("Mix");//inside the animator controller
-                scoreBoard.ScoreSoap();//to increase the scoreboard
-
                 if (!audioSource.isPlaying)                    //if the audio is not playing
 
                 {
                     audioSource.Play();
                 }
-                //else
 
-                //{
-                //    audioSource.Stop();
+                else
+
+                {
+                    audioSource.Stop();
+                }
+
+                animator.SetTrigger("Mix");//inside the animator controller
+                scoreBoard.ScoreSoap();//to increase the scoreboard
+
+                //    Debug.Log("sound");
+                //    AudioManagerMix.current.PlaySound(sound);
                 //}
-                //Debug.Log("button clicked");
-                
+
+
+                ////else
+                ////{
+                ////    AudioManagerMix.current.StopSound();
+                ////}
+
+
+
+
             }
 
-            
+
 
 
         }
@@ -70,8 +82,8 @@ public class LadleScript : MonoBehaviour
 
     }
 
-
+}
   
 
-}
+
 

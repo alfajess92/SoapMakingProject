@@ -19,6 +19,6 @@ public class ScoreBoard : MonoBehaviour
     public void ScoreSoap()
     {
         score = score + scorePerSoap;
-        scoreText.text = score.ToString();
+        scoreText.text = "You made " + score.ToString() + " " + "soap!";
     }
 }

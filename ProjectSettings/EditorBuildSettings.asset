@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Soap_making_old.unity
     guid: 66acf38196ba14f8cb86ad6d0c471392
+  - enabled: 1
+    path: Assets/Scenes/Soap_making_lab.unity
+    guid: 0105a97546fa1481b9bb08d5671ae344
   m_configObjects: {}
