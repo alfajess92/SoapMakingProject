@@ -7,13 +7,9 @@ using Vuforia;
 
 public class LadleScript : MonoBehaviour
 {
-
-
-
-
-    public GameObject definedButton;
+    public GameObject definedButton, ladle;
     public UnityEvent OnClick = new UnityEvent();
-    Animator animator;
+    Animator animatorLadle;
     AudioSource audioSource;
     ScoreBoard scoreBoard;
     Vector3 position;
@@ -25,10 +21,14 @@ public class LadleScript : MonoBehaviour
 
     {
         definedButton = this.gameObject;
-        animator = GetComponentInParent<Animator>();
+        ladle = GameObject.Find("Parent_Ladle");//Find the object with this name in the world
+        animatorLadle = ladle.GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         position = definedButton.transform.localPosition;
         scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
+          //animator = GetComponentInParent<Animator>();
+        ////animator = GetComponentInChildren<Animator>();
+
     }
 
 
@@ -36,7 +36,6 @@ public class LadleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
 
@@ -44,44 +43,28 @@ public class LadleScript : MonoBehaviour
         {
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == gameObject)
             {
-                if (!audioSource.isPlaying)                    //if the audio is not playing
-
-                {
-                    audioSource.Play();
-                }
-
-                else
-
-                {
-                    audioSource.Stop();
-                }
-
-                animator.SetTrigger("Mix");//inside the animator controller
+                animatorLadle.SetTrigger("Mix");//inside the animator controller
+                //PlaySound();
                 scoreBoard.ScoreSoap();//to increase the scoreboard
-
-                //    Debug.Log("sound");
-                //    AudioManagerMix.current.PlaySound(sound);
-                //}
-
-
-                ////else
-                ////{
-                ////    AudioManagerMix.current.StopSound();
-                ////}
-
-
-
-
             }
-
-
-
-
         }
-
 
     }
 
+ public void PlaySound()
+    {
+        if (!audioSource.isPlaying)                    //if the audio is not playing
+
+        {
+            audioSource.Play();
+        }
+
+        else
+
+        {
+            audioSource.Stop();
+        }
+    }
 }
   
 

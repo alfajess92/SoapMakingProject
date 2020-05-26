@@ -1,38 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Vuforia;
 using UnityEngine.Events;
 
-public class ServeWater : MonoBehaviour
+public class WoodSaucer : MonoBehaviour
 {
-
-
-   
-    public GameObject definedButton, waterAsh;
+    public GameObject definedButton;
     public UnityEvent OnClick = new UnityEvent();
-    Animator animator, animatorWaterAsh;
+    Animator animator;
+    AudioSource audioSource;
     Vector3 position;
 
-    //// Start is called before the first frame update
+
+    // Start is called before the first frame update
     void Start()
-
-
     {
         definedButton = this.gameObject;
-        waterAsh = GameObject.Find("WaterProDaytime");
         animator = GetComponent<Animator>();
-        animatorWaterAsh = waterAsh.GetComponent<Animator>();
-
+        audioSource = GetComponent<AudioSource>();
         position = definedButton.transform.localPosition;
     }
 
+    
 
 
     // Update is called once per frame
     void Update()
     {
-
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
 
@@ -41,18 +35,28 @@ public class ServeWater : MonoBehaviour
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == gameObject)
             {
 
-                animator.SetTrigger("Serve");//inside the animator controller
-                animatorWaterAsh.SetTrigger("Fill");
-
+               Debug.Log("echale");
+               animator.SetTrigger("ServeAsh");//inside the animator controller
+               //PlaySound();
 
             }
 
-
-
-
         }
-
 
     }
 
+    private void PlaySound()
+    {
+        if (!audioSource.isPlaying)                    //if the audio is not playing
+
+        {
+            audioSource.Play();
+        }
+
+        else
+
+        {
+            audioSource.Stop();
+        }
+    }
 }

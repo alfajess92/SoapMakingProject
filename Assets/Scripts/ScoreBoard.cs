@@ -11,6 +11,9 @@ public class ScoreBoard : MonoBehaviour
 
     int score;
     Text scoreText, nextScene;
+    enum State {Scenesoap, Scenelab, Trascending}
+    State state = State.Scenesoap;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +22,14 @@ public class ScoreBoard : MonoBehaviour
         
     }
 
+
     public void ScoreSoap()
     {
         score += scorePerSoap;
         scoreText.text = "+" + score.ToString();
-        NextLevel();
+        //NextLevel();
+        //state = State.Trascending;
+        Invoke("NextLevel", 5f);//parameterise time
     }
 
 
@@ -32,9 +38,11 @@ public class ScoreBoard : MonoBehaviour
         if (score >= 3)
         {
             //nextScene.text = "You are the master of soap making";
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1);// todo allow for more than 2 levels
         }
 
     }
+
+    
     
 }

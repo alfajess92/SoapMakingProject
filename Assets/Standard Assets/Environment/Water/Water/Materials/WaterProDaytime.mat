@@ -149,7 +149,7 @@ Material:
     - _SpecularColor: {r: 0.72, g: 0.72, b: 0.72, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _WorldLightDir: {r: 0, g: 0.1, b: -0.5, a: 0}
-    - _horizonColor: {r: 0.10083661, g: 0.20754719, b: 0.19745296, a: 0}
+    - _horizonColor: {r: 0.514151, g: 0.9015758, b: 1, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
