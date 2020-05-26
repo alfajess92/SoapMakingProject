@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+//[RequireComponent(typeof(SpillScriptWoodSaucer))]
+
 public class WoodSaucer : MonoBehaviour
 {
+    [SerializeField] SpillScriptWoodSaucer spill;
+
     public GameObject definedButton;
     public UnityEvent OnClick = new UnityEvent();
     Animator animator;
     AudioSource audioSource;
     Vector3 position;
+    ParticleSystem waterStreamWoodSaucer;
+    //SpillScriptWoodSaucer spill;
 
 
     // Start is called before the first frame update
@@ -19,6 +26,8 @@ public class WoodSaucer : MonoBehaviour
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         position = definedButton.transform.localPosition;
+        //waterStreamWoodSaucer=ParticleSystem.FindObjectOfType
+        waterStreamWoodSaucer = GetComponent<ParticleSystem>();
     }
 
     
@@ -37,7 +46,7 @@ public class WoodSaucer : MonoBehaviour
 
                Debug.Log("echale");
                animator.SetTrigger("ServeAsh");//inside the animator controller
-               //PlaySound();
+               
 
             }
 
@@ -59,4 +68,16 @@ public class WoodSaucer : MonoBehaviour
             audioSource.Stop();
         }
     }
+
+
+    public void PlayWaterStream()
+    {
+        spill.PlayWaterStream();
+    }
+
+    public void StopWaterStream()
+    {
+        spill.StopWaterStream();
+    }
+
 }

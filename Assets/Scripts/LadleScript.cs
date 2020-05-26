@@ -7,10 +7,10 @@ using Vuforia;
 
 public class LadleScript : MonoBehaviour
 {
-    public GameObject definedButton, ladle;
+    public GameObject definedButton, parentLadle;
     public UnityEvent OnClick = new UnityEvent();
     Animator animatorLadle;
-    AudioSource audioSource;
+    //AudioSource audioSource;
     ScoreBoard scoreBoard;
     Vector3 position;
     //public AudioClip sound;
@@ -21,9 +21,9 @@ public class LadleScript : MonoBehaviour
 
     {
         definedButton = this.gameObject;
-        ladle = GameObject.Find("Parent_Ladle");//Find the object with this name in the world
-        animatorLadle = ladle.GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        parentLadle = GameObject.Find("Parent_Ladle");//Find the object with this name in the world
+        animatorLadle = parentLadle.GetComponent<Animator>();
+        //audioSource = GetComponent<AudioSource>();
         position = definedButton.transform.localPosition;
         scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
           //animator = GetComponentInParent<Animator>();
@@ -51,20 +51,20 @@ public class LadleScript : MonoBehaviour
 
     }
 
- public void PlaySound()
-    {
-        if (!audioSource.isPlaying)                    //if the audio is not playing
+    // private void PlaySound()
+    //{
+    //    if (!audioSource.isPlaying)                    //if the audio is not playing
 
-        {
-            audioSource.Play();
-        }
+    //    {
+    //        audioSource.Play();
+    //    }
 
-        else
+    //    else
 
-        {
-            audioSource.Stop();
-        }
-    }
+    //    {
+    //        audioSource.Stop();
+    //    }
+    //}
 }
   
 
