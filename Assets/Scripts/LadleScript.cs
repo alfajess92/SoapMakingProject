@@ -7,6 +7,7 @@ using Vuforia;
 
 public class LadleScript : MonoBehaviour
 {
+    [SerializeField] SmokeScriptBoiler smoke;
     public GameObject  parentLadle;
     public UnityEvent OnClick = new UnityEvent();
     Animator animatorLadle;
@@ -33,11 +34,20 @@ public class LadleScript : MonoBehaviour
    public  void MoveLadle()
     {
         animatorLadle.SetTrigger("Mix");//inside the animator controller
+        StartSmoke();
         scoreBoard.ScoreSoap();
-        isTouchLadle = true;
-            
+        isTouchLadle = true; 
     }
 
+    public void StartSmoke()
+    {
+        smoke.PlaySmokeBoiler();
+    }
+
+    public void StopSmoke()
+    {
+       smoke.StopSmokeBoiler();
+    }
 
     // Update is called once per frame
     /*void Update()

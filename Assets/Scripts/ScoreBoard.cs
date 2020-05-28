@@ -35,7 +35,7 @@ public class ScoreBoard : MonoBehaviour
 
     public void NextLevel()
     {
-        if (score >= 1)
+        if (score >= 3)
         {
             //nextScene.text = "You are the master of soap making";
             SceneManager.LoadScene(1);// todo allow for more than 2 levels

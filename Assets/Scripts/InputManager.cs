@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class InputManager : MonoBehaviour
     public LadleScript ladleScript;
     public WoodSaucer woodSaucerScript;
     public UnityEvent OnClick = new UnityEvent();
-
+    private int count = 0;
+    public Text countText;
 
 
 
@@ -28,6 +30,7 @@ public class InputManager : MonoBehaviour
 
         ladle = GameObject.Find("Soup_Ladle_A");//Find the object with this name in the world TODO check if GameObject.Find is the best approach
         ladleScript = ladle.GetComponent<LadleScript>();
+
 
     }
 
@@ -47,27 +50,43 @@ public class InputManager : MonoBehaviour
                 Debug.Log("ya vamos activando la fiesta");
                 //serveWater.enabled = true;
                 teapotScript.ServeWaterTeapot();
-                
+                count += 1;
+                SetCountText();
 
+            }
+
+            else
+            {
+                count -= 1;
+                SetCountText();
             }
 
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == woodsaucer && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 Debug.Log("ya vamos echando el agua");
                 woodSaucerScript.ServeWaterWoodSaucer();
-
+                count += 1;
+                //SetCountText();
             }
 
 
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer)
             {
                 Debug.Log("ya vamos meneando el mengurje");
                 ladleScript.MoveLadle();
+                count += 1;
+                //SetCountText();
+
             }
 
 
         }
 
+    }
+
+    void SetCountText()
+    {
+        countText.text = "Start with the teapot";
     }
 
 }

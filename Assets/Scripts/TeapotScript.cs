@@ -10,7 +10,7 @@ public class TeapotScript : MonoBehaviour
     public GameObject  waterAsh;
     Animator animator, animatorWaterAsh;
     AudioSource audioSource;
-    ParticleSystem waterStreamTeapot;
+    //ParticleSystem waterStreamTeapot;
     public bool isTouchTeapot = false;
 
     //// Start is called before the first frame update
@@ -22,7 +22,7 @@ public class TeapotScript : MonoBehaviour
         animator = GetComponent<Animator>();
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        waterStreamTeapot = GetComponent<ParticleSystem>();
+        //waterStreamTeapot = GetComponent<ParticleSystem>();
     }
 
  

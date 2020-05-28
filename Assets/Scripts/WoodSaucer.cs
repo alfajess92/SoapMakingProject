@@ -12,7 +12,7 @@ public class WoodSaucer : MonoBehaviour
     Animator animator;
     AudioSource audioSource;
     Vector3 position;
-    ParticleSystem waterStreamWoodSaucer;
+    //ParticleSystem waterStreamWoodSaucer;
     public bool isTouchWoodsaucer = false;
 
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class WoodSaucer : MonoBehaviour
        
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        waterStreamWoodSaucer = GetComponent<ParticleSystem>();
+        //waterStreamWoodSaucer = GetComponent<ParticleSystem>();
        
     }
 

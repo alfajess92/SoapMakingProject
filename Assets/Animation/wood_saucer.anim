@@ -638,28 +638,28 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 3.9833333
-    functionName: PlaySound
+    functionName: PlaySoundWoodSaucerStream
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4.383333
+  - time: 4
     functionName: PlayWaterStream
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 6.9333334
-    functionName: StopWaterStream
+  - time: 7.2
+    functionName: PlaySoundWoodSaucerStream
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 7.2
-    functionName: PlaySound
+  - time: 7.2166667
+    functionName: StopWaterStream
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

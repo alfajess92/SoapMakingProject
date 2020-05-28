@@ -10,12 +10,12 @@ public class PlaySound : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        PlayAudioSource();
+        
     
     }
 
 
-    private void PlayAudioSource()
+    public void PlayAudioSource()
     {
         if (!audioSource.isPlaying)                    //if the audio is not playing
 
