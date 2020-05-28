@@ -8,25 +8,26 @@ public class InputManager : MonoBehaviour
 {
 
     public GameObject ladle, teapot, woodsaucer;
+    public TeapotScript teapotScript;
+    public LadleScript ladleScript;
+    public WoodSaucer woodSaucerScript;
     public UnityEvent OnClick = new UnityEvent();
-    
+
+
+
 
     //// Start is called before the first frame update
     void Start()
 
     {
-
-        ladle = GameObject.Find("Soup_Ladle_A");//Find the object with this name in the world
-        ladle.GetComponent<LadleScript>().enabled = false;
-
-
         teapot = GameObject.Find("Teapot");//Find the object with this name in the world
-        teapot.GetComponent<ServeWater>().enabled = false;
-
-
+        teapotScript=teapot.GetComponent<TeapotScript>();
 
         woodsaucer = GameObject.Find("Wood_Saucer");//Find the object with this name in the world
-        woodsaucer.GetComponent<WoodSaucer>().enabled = false;
+        woodSaucerScript = woodsaucer.GetComponent<WoodSaucer>();
+
+        ladle = GameObject.Find("Soup_Ladle_A");//Find the object with this name in the world TODO check if GameObject.Find is the best approach
+        ladleScript = ladle.GetComponent<LadleScript>();
 
     }
 
@@ -41,14 +42,30 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
         {
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == teapot)
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == teapot && !teapotScript.isTouchTeapot  && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 Debug.Log("ya vamos activando la fiesta");
-                ladle.GetComponent<LadleScript>().enabled = true;
-                teapot.GetComponent<ServeWater>().enabled = true;
-                woodsaucer.GetComponent<WoodSaucer>().enabled = false;
+                //serveWater.enabled = true;
+                teapotScript.ServingWater();
+                
+
             }
-            
+
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == woodsaucer && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
+            {
+                Debug.Log("ya vamos echando el agua");
+                woodSaucerScript.ServeWaterWoodSaucer();
+
+            }
+
+
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
+            {
+                Debug.Log("ya vamos meneando el mengurje");
+                ladleScript.MoveLadle();
+            }
+
+
         }
 
     }

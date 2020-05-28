@@ -7,7 +7,7 @@ using Vuforia;
 
 public class LadleScript : MonoBehaviour
 {
-    public GameObject definedButton, parentLadle;
+    public GameObject  parentLadle;
     public UnityEvent OnClick = new UnityEvent();
     Animator animatorLadle;
     //AudioSource audioSource;
@@ -20,18 +20,21 @@ public class LadleScript : MonoBehaviour
 
 
     {
-        definedButton = this.gameObject;
+        //definedButton = this.gameObject;
         parentLadle = GameObject.Find("Parent_Ladle");//Find the object with this name in the world
         animatorLadle = parentLadle.GetComponent<Animator>();
         //audioSource = GetComponent<AudioSource>();
-        position = definedButton.transform.localPosition;
-        scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
-                                                    //animator = GetComponentInParent<Animator>();
-                                                    ////animator = GetComponentInChildren<Animator>();
-        PlayAnimation();
-        scoreBoard.ScoreSoap();
+        //position = definedButton.transform.localPosition;
+        scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world                                           
     }
 
+
+
+   public  void MoveLadle()
+    {
+        animatorLadle.SetTrigger("Mix");//inside the animator controller
+        scoreBoard.ScoreSoap();                             
+    }
 
 
     // Update is called once per frame
@@ -54,13 +57,7 @@ public class LadleScript : MonoBehaviour
     }
     */
 
-        void PlayAnimation()
-    {
-        animatorLadle.SetTrigger("Mix");//inside the animator controller
-                                        //PlaySound();
-       
-    }
-    
+
 
     // private void PlaySound()
     //{

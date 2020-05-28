@@ -2,29 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
-using UnityEngine.Events;
 
-public class ServeWater : MonoBehaviour
+
+public class TeapotScript : MonoBehaviour
 {
-
-
-   
-    public GameObject definedButton, waterAsh;
-    public UnityEvent OnClick = new UnityEvent();
+    public GameObject  waterAsh;
     Animator animator, animatorWaterAsh;
-    Vector3 position;
+    public bool isTouchTeapot = false;
 
     //// Start is called before the first frame update
     void Start()
 
 
     {
-        definedButton = this.gameObject;
+        //definedButton = this.gameObject;
         waterAsh = GameObject.Find("WaterProDaytime");
         animator = GetComponent<Animator>();
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
-        position = definedButton.transform.localPosition;
-        ServingWater();
+        //position = definedButton.transform.localPosition;
+    }
+
+ 
+    public void ServingWater()
+    {
+        animator.SetTrigger("Serve");//inside the animator controller
+        animatorWaterAsh.SetTrigger("Fill");
+        isTouchTeapot = true;
     }
 
 
@@ -48,10 +51,5 @@ public class ServeWater : MonoBehaviour
 
     }
     */
-    void ServingWater()
-    {
-        animator.SetTrigger("Serve");//inside the animator controller
-        animatorWaterAsh.SetTrigger("Fill");
-    }
 
 }

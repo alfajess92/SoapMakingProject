@@ -18,9 +18,37 @@ public class SpillScript : MonoBehaviour
         teapot = GameObject.Find("Teapot");
         teapotTransform = teapot.transform;
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine(PlayStream());
-        
+          
     }
+
+    
+   public void TeapotStream()
+    {
+        Debug.Log("vengase el agua");
+        rotation = teapotTransform.localEulerAngles;
+        Debug.Log(rotation.x);
+
+        //if (position.y ==0.151f)
+        if (rotation.x >= 271.0f)
+        {
+            waterStream.Play();
+            if (!audioSource.isPlaying)  //if the audio is not playing
+
+            {
+                audioSource.Play();
+            }
+        }
+        else
+
+        {
+            waterStream.Stop();
+            audioSource.Stop();
+        }
+
+        Debug.Log("Ya eche el agua");
+    }
+
+
 
     // Update is called once per frame
     //void Update()
@@ -48,31 +76,4 @@ public class SpillScript : MonoBehaviour
     //    }
     //}
 
-    IEnumerator PlayStream()
-    {
-        Debug.Log("vengase el agua");
-        rotation = teapotTransform.localEulerAngles;
-
-        Debug.Log(rotation.x);
-
-        //if (position.y ==0.151f)
-        if (rotation.x >= 271.0f)
-        {
-            waterStream.Play();
-            if (!audioSource.isPlaying)  //if the audio is not playing
-
-            {
-                audioSource.Play();
-            }
-        }
-        else
-
-        {
-            waterStream.Stop();
-            audioSource.Stop();
-        }
-
-        yield return new WaitForSeconds(1f);
-        Debug.Log("Ya eche el agua");
-    }
 }
