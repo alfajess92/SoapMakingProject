@@ -17,7 +17,7 @@ public class WoodSaucer : MonoBehaviour
     Vector3 position;
     ParticleSystem waterStreamWoodSaucer;
     //SpillScriptWoodSaucer spill;
-
+    public bool isTouchWoodsaucer = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +28,42 @@ public class WoodSaucer : MonoBehaviour
         position = definedButton.transform.localPosition;
         //waterStreamWoodSaucer=ParticleSystem.FindObjectOfType
         waterStreamWoodSaucer = GetComponent<ParticleSystem>();
-        Debug.Log("echale");
-        animator.SetTrigger("ServeAsh");
+       
     }
 
-    
+   public void ServeWaterWoodSaucer()
+    {
+        Debug.Log("echale");
+        animator.SetTrigger("ServeAsh");
+        isTouchWoodsaucer = true;
+    }
+
+    private void PlaySound()
+    {
+        if (!audioSource.isPlaying)                    //if the audio is not playing
+
+        {
+            audioSource.Play();
+        }
+
+        else
+
+        {
+            audioSource.Stop();
+        }
+    } //TODO check if this has to be here
+
+
+    public void PlayWaterStream()
+    {
+        spill.PlayWaterStream();
+    }
+
+    public void StopWaterStream()
+    {
+        spill.StopWaterStream();
+    }
+
 
 
     // Update is called once per frame
@@ -58,31 +89,5 @@ public class WoodSaucer : MonoBehaviour
 
     //}
     */
-
-    private void PlaySound()
-    {
-        if (!audioSource.isPlaying)                    //if the audio is not playing
-
-        {
-            audioSource.Play();
-        }
-
-        else
-
-        {
-            audioSource.Stop();
-        }
-    }
-
-
-    public void PlayWaterStream()
-    {
-        spill.PlayWaterStream();
-    }
-
-    public void StopWaterStream()
-    {
-        spill.StopWaterStream();
-    }
 
 }

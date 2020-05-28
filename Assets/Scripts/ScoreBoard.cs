@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ScoreBoard : MonoBehaviour
 {
-    [SerializeField] int scorePerSoap = 1;//maybe should be in teapot
+    [SerializeField] int scorePerSoap = 0;//maybe should be in teapot
 
     int score;
     Text scoreText, nextScene;
@@ -35,7 +35,7 @@ public class ScoreBoard : MonoBehaviour
 
     public void NextLevel()
     {
-        if (score >= 3)
+        if (score >= 1)
         {
             //nextScene.text = "You are the master of soap making";
             SceneManager.LoadScene(1);// todo allow for more than 2 levels

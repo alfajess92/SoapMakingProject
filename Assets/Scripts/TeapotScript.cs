@@ -6,6 +6,8 @@ using Vuforia;
 
 public class TeapotScript : MonoBehaviour
 {
+    [SerializeField] SpillScript spill;
+
     public GameObject  waterAsh;
     Animator animator, animatorWaterAsh;
     public bool isTouchTeapot = false;
@@ -30,6 +32,15 @@ public class TeapotScript : MonoBehaviour
         isTouchTeapot = true;
     }
 
+    public void PlayWaterStream()//to add in the animator controller as a parameter
+    {
+        spill.PlayWaterStreamTeapot();
+    }
+
+    public void StopWaterStream()
+    {
+        spill.PlayWaterStreamTeapot();
+    }
 
 
     // Update is called once per frame

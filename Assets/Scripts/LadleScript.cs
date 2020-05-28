@@ -10,10 +10,10 @@ public class LadleScript : MonoBehaviour
     public GameObject  parentLadle;
     public UnityEvent OnClick = new UnityEvent();
     Animator animatorLadle;
-    //AudioSource audioSource;
     ScoreBoard scoreBoard;
     Vector3 position;
-    //public AudioClip sound;
+    public bool isTouchLadle = false;
+   
 
     //// Start is called before the first frame update
     void Start()
@@ -33,7 +33,9 @@ public class LadleScript : MonoBehaviour
    public  void MoveLadle()
     {
         animatorLadle.SetTrigger("Mix");//inside the animator controller
-        scoreBoard.ScoreSoap();                             
+        scoreBoard.ScoreSoap();
+        isTouchLadle = true;
+            
     }
 
 
