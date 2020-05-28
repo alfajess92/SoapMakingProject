@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Vuforia;
 
 
 public class TeapotScript : MonoBehaviour
@@ -10,6 +9,8 @@ public class TeapotScript : MonoBehaviour
 
     public GameObject  waterAsh;
     Animator animator, animatorWaterAsh;
+    AudioSource audioSource;
+    ParticleSystem waterStreamTeapot;
     public bool isTouchTeapot = false;
 
     //// Start is called before the first frame update
@@ -17,15 +18,15 @@ public class TeapotScript : MonoBehaviour
 
 
     {
-        //definedButton = this.gameObject;
         waterAsh = GameObject.Find("WaterProDaytime");
         animator = GetComponent<Animator>();
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
-        //position = definedButton.transform.localPosition;
+        audioSource = GetComponent<AudioSource>();
+        waterStreamTeapot = GetComponent<ParticleSystem>();
     }
 
  
-    public void ServingWater()
+    public void ServeWaterTeapot()
     {
         animator.SetTrigger("Serve");//inside the animator controller
         animatorWaterAsh.SetTrigger("Fill");
@@ -39,9 +40,27 @@ public class TeapotScript : MonoBehaviour
 
     public void StopWaterStream()
     {
-        spill.PlayWaterStreamTeapot();
+        spill.StopWaterStreamTeapot();
     }
 
+
+
+    public void PlaySoundTeapotStream()//TODO check if this has to be here
+
+    {
+        if (!audioSource.isPlaying)                    //if the audio is not playing
+
+        {
+            audioSource.Play();
+        }
+
+        else
+
+        {
+            audioSource.Stop();
+        }
+
+    }
 
     // Update is called once per frame
     /*void Update()

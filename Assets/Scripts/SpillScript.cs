@@ -5,49 +5,23 @@ using UnityEngine;
 public class SpillScript : MonoBehaviour
 {
     ParticleSystem waterStreamTeapot;
-    Transform teapotTransform;
-    Vector3 position, rotation;
-    //Quaternion rotation;
-    AudioSource audioSource;
-    public GameObject teapot;
-    // Start is called before the first frame update
+    //TODO this script maybe can be generic
+
+    //Transform teapotTransform;
+    //Vector3 position, rotation;
+    ////Quaternion rotation;
+    //AudioSource audioSource;
+    //public GameObject teapot;
 
     void Start()
     {
         waterStreamTeapot = GetComponent<ParticleSystem>();
-        teapot = GameObject.Find("Teapot");
-        teapotTransform = teapot.transform;
-        audioSource = GetComponent<AudioSource>();
         StopWaterStreamTeapot();
-          
+        //teapot = GameObject.Find("Teapot");
+        //teapotTransform = teapot.transform;
+        //audioSource = GetComponent<AudioSource>();
+
     }
-
-    
-   //public void TeapotStream()
-   // {
-   //     Debug.Log("vengase el agua");
-   //     rotation = teapotTransform.localEulerAngles;
-   //     Debug.Log(rotation.x);
-
-   //     //if (position.y ==0.151f)
-   //     if (rotation.x >= 271.0f)
-   //     {
-   //         waterStreamTeapot.Play();
-   //         if (!audioSource.isPlaying)  //if the audio is not playing
-
-   //         {
-   //             audioSource.Play();
-   //         }
-   //     }
-   //     else
-
-   //     {
-   //         waterStreamTeapot.Stop();
-   //         audioSource.Stop();
-   //     }
-
-   //     Debug.Log("Ya eche el agua");
-   // }
 
     public void PlayWaterStreamTeapot()
     {
@@ -88,6 +62,33 @@ public class SpillScript : MonoBehaviour
     //    }
     //}
 
+
+
+    //public void TeapotStream()
+    // {
+    //     Debug.Log("vengase el agua");
+    //     rotation = teapotTransform.localEulerAngles;
+    //     Debug.Log(rotation.x);
+
+    //     //if (position.y ==0.151f)
+    //     if (rotation.x >= 271.0f)
+    //     {
+    //         waterStreamTeapot.Play();
+    //         if (!audioSource.isPlaying)  //if the audio is not playing
+
+    //         {
+    //             audioSource.Play();
+    //         }
+    //     }
+    //     else
+
+    //     {
+    //         waterStreamTeapot.Stop();
+    //         audioSource.Stop();
+    //     }
+
+    //     Debug.Log("Ya eche el agua");
+    // }
 
 
 }

@@ -385,15 +385,29 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 3.95
-    functionName: 
+  - time: 3.5333333
+    functionName: PlayWaterStream
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.5333333
+    functionName: PlaySoundTeapotStream
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 10.683333
-    functionName: 
+    functionName: PlaySoundTeapotStream
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 10.683333
+    functionName: StopWaterStream
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

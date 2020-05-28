@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
             {
                 Debug.Log("ya vamos activando la fiesta");
                 //serveWater.enabled = true;
-                teapotScript.ServingWater();
+                teapotScript.ServeWaterTeapot();
                 
 
             }

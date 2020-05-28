@@ -1,32 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-
-//[RequireComponent(typeof(SpillScriptWoodSaucer))]
 
 public class WoodSaucer : MonoBehaviour
 {
     [SerializeField] SpillScriptWoodSaucer spill;
 
-    public GameObject definedButton;
-    public UnityEvent OnClick = new UnityEvent();
+    //public GameObject definedButton;
+    
     Animator animator;
     AudioSource audioSource;
     Vector3 position;
     ParticleSystem waterStreamWoodSaucer;
-    //SpillScriptWoodSaucer spill;
     public bool isTouchWoodsaucer = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        definedButton = this.gameObject;
+       
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        position = definedButton.transform.localPosition;
-        //waterStreamWoodSaucer=ParticleSystem.FindObjectOfType
         waterStreamWoodSaucer = GetComponent<ParticleSystem>();
        
     }
@@ -38,7 +32,20 @@ public class WoodSaucer : MonoBehaviour
         isTouchWoodsaucer = true;
     }
 
-    private void PlaySound()
+    
+    public void PlayWaterStream()
+    {
+        spill.PlayWaterStreamWoodSaucer();
+    }
+
+    public void StopWaterStream()
+    {
+        spill.StopWaterStreamWoodSaucer();
+    }
+
+
+    public void PlaySoundWoodSaucerStream()//TODO check if this has to be here
+
     {
         if (!audioSource.isPlaying)                    //if the audio is not playing
 
@@ -51,19 +58,8 @@ public class WoodSaucer : MonoBehaviour
         {
             audioSource.Stop();
         }
-    } //TODO check if this has to be here
 
-
-    public void PlayWaterStream()
-    {
-        spill.PlayWaterStream();
     }
-
-    public void StopWaterStream()
-    {
-        spill.StopWaterStream();
-    }
-
 
 
     // Update is called once per frame

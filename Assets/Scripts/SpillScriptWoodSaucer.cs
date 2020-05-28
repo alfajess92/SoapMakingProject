@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class SpillScriptWoodSaucer : MonoBehaviour
 {
+    //TODO this script maybe can be generic
     ParticleSystem waterStreamWoodSaucer;
-    // Start is called before the first frame update
+    
     void Start()
     {
         waterStreamWoodSaucer = GetComponent<ParticleSystem>();
-        StopWaterStream();
+        StopWaterStreamWoodSaucer();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void PlayWaterStream()
+    public void PlayWaterStreamWoodSaucer()//to add in the animator controller as a parameter
     {
         waterStreamWoodSaucer.Play();
     }
 
-    public void StopWaterStream()
+    public void StopWaterStreamWoodSaucer()
     {
         waterStreamWoodSaucer.Stop();
     }
