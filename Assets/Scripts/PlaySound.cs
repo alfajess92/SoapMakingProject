@@ -11,12 +11,8 @@ public class PlaySound : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         PlayAudioSource();
-       
-        
+    
     }
-
-
- 
 
 
     private void PlayAudioSource()

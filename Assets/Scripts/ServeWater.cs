@@ -23,16 +23,16 @@ public class ServeWater : MonoBehaviour
         waterAsh = GameObject.Find("WaterProDaytime");
         animator = GetComponent<Animator>();
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
-
         position = definedButton.transform.localPosition;
+        ServingWater();
     }
 
 
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
-
+        Debug.Log("vengase la teapot");
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
 
@@ -40,19 +40,18 @@ public class ServeWater : MonoBehaviour
         {
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == gameObject)
             {
-
                 animator.SetTrigger("Serve");//inside the animator controller
                 animatorWaterAsh.SetTrigger("Fill");
-
-
             }
-
-
-
 
         }
 
-
+    }
+    */
+    void ServingWater()
+    {
+        animator.SetTrigger("Serve");//inside the animator controller
+        animatorWaterAsh.SetTrigger("Fill");
     }
 
 }

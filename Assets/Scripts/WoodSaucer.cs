@@ -28,31 +28,36 @@ public class WoodSaucer : MonoBehaviour
         position = definedButton.transform.localPosition;
         //waterStreamWoodSaucer=ParticleSystem.FindObjectOfType
         waterStreamWoodSaucer = GetComponent<ParticleSystem>();
+        Debug.Log("echale");
+        animator.SetTrigger("ServeAsh");
     }
 
     
 
 
     // Update is called once per frame
-    void Update()
-    {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit Hit;
+    /*
+     * //void Update()
+    //{
+    //    Debug.Log("vengase la charolita");
+    //    var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    //    RaycastHit Hit;
 
-        if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
-        {
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == gameObject)
-            {
+    //    if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
+    //    {
+    //        if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == gameObject)
+    //        {
 
-               Debug.Log("echale");
-               animator.SetTrigger("ServeAsh");//inside the animator controller
+    //           Debug.Log("echale");
+    //           animator.SetTrigger("ServeAsh");//inside the animator controller
                
 
-            }
+    //        }
 
-        }
+    //    }
 
-    }
+    //}
+    */
 
     private void PlaySound()
     {

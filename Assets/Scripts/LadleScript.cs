@@ -26,16 +26,18 @@ public class LadleScript : MonoBehaviour
         //audioSource = GetComponent<AudioSource>();
         position = definedButton.transform.localPosition;
         scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
-          //animator = GetComponentInParent<Animator>();
-        ////animator = GetComponentInChildren<Animator>();
-
+                                                    //animator = GetComponentInParent<Animator>();
+                                                    ////animator = GetComponentInChildren<Animator>();
+        PlayAnimation();
+        scoreBoard.ScoreSoap();
     }
 
 
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
+        Debug.Log("vengase la cuchara");
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
 
@@ -50,6 +52,15 @@ public class LadleScript : MonoBehaviour
         }
 
     }
+    */
+
+        void PlayAnimation()
+    {
+        animatorLadle.SetTrigger("Mix");//inside the animator controller
+                                        //PlaySound();
+       
+    }
+    
 
     // private void PlaySound()
     //{
