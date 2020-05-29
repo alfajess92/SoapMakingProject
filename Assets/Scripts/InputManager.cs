@@ -13,8 +13,8 @@ public class InputManager : MonoBehaviour
     public LadleScript ladleScript;
     public WoodSaucer woodSaucerScript;
     public UnityEvent OnClick = new UnityEvent();
-    private int count = 0;
-    public Text countText;
+    //private int count = 0;
+    public Text messageToUser; //TODO maybe this can be add somewhere else
 
 
 
@@ -48,35 +48,32 @@ public class InputManager : MonoBehaviour
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == teapot && !teapotScript.isTouchTeapot  && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 Debug.Log("ya vamos activando la fiesta");
-                //serveWater.enabled = true;
-                teapotScript.ServeWaterTeapot();
-                count += 1;
-                SetCountText();
-
+                teapotScript.ServeWaterTeapot(); 
             }
 
-            else
-            {
-                count -= 1;
-                SetCountText();
-            }
+         
 
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == woodsaucer && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
+                messageToUser.text = "Let's make some lye";
                 Debug.Log("ya vamos echando el agua");
                 woodSaucerScript.ServeWaterWoodSaucer();
-                count += 1;
-                //SetCountText();
+
             }
 
 
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer)
             {
+                messageToUser.text = "This looks good, now let's mix!";
                 Debug.Log("ya vamos meneando el mengurje");
                 ladleScript.MoveLadle();
-                count += 1;
-                //SetCountText();
 
+
+            }
+
+            else
+            {
+                messageToUser.text = "Try adding water from the teapot to the ash bowl";
             }
 
 
@@ -84,9 +81,8 @@ public class InputManager : MonoBehaviour
 
     }
 
-    void SetCountText()
-    {
-        countText.text = "Start with the teapot";
-    }
-
+ 
 }
+
+
+   

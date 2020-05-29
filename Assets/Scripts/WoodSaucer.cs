@@ -5,34 +5,47 @@ using UnityEngine;
 
 public class WoodSaucer : MonoBehaviour
 {
-    [SerializeField] SpillScriptWoodSaucer spill;
+   [SerializeField] SpillScriptWoodSaucer spill;
+    Animator animatorWoodSaucer, animatorWaterAsh, animatorAsh;
 
-    //public GameObject definedButton;
-    
-    Animator animator;
-    AudioSource audioSource;
-    Vector3 position;
-    //ParticleSystem waterStreamWoodSaucer;
+    AudioSource audiosourceWoodSaucer;
+    public GameObject waterAsh, ash;
     public bool isTouchWoodsaucer = false;
+    public bool isEmpty = false;
 
     // Start is called before the first frame update
     void Start()
     {
-       
-        animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
-        //waterStreamWoodSaucer = GetComponent<ParticleSystem>();
-       
+        animatorWoodSaucer = GetComponent<Animator>();
+        audiosourceWoodSaucer = GetComponent<AudioSource>();
+
+        waterAsh = GameObject.Find("WaterProDaytime");
+        animatorWaterAsh = waterAsh.GetComponent<Animator>();
+
+        ash= GameObject.Find("ash2");
+        animatorAsh = ash.GetComponent<Animator>();
     }
 
    public void ServeWaterWoodSaucer()
     {
         Debug.Log("echale");
-        animator.SetTrigger("ServeAsh");
+        animatorWoodSaucer.SetTrigger("ServeAsh");
         isTouchWoodsaucer = true;
+       
     }
 
-    
+    public void EmptyWoodSaucer()
+    {
+        animatorWaterAsh.SetTrigger("EmptyWoodSaucer");
+    }
+
+
+    public void DissapearAsh()
+    {
+        animatorAsh.SetTrigger("Dissapear");
+    }
+
+
     public void PlayWaterStream()
     {
         spill.PlayWaterStreamWoodSaucer();
@@ -47,43 +60,21 @@ public class WoodSaucer : MonoBehaviour
     public void PlaySoundWoodSaucerStream()//TODO check if this has to be here
 
     {
-        if (!audioSource.isPlaying)                    //if the audio is not playing
+        if (!audiosourceWoodSaucer.isPlaying)                    //if the audio is not playing
 
         {
-            audioSource.Play();
+            audiosourceWoodSaucer.Play();
         }
 
         else
 
         {
-            audioSource.Stop();
+            audiosourceWoodSaucer.Stop();
         }
 
     }
 
 
-    // Update is called once per frame
-    /*
-     * //void Update()
-    //{
-    //    Debug.Log("vengase la charolita");
-    //    var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    //    RaycastHit Hit;
 
-    //    if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
-    //    {
-    //        if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == gameObject)
-    //        {
-
-    //           Debug.Log("echale");
-    //           animator.SetTrigger("ServeAsh");//inside the animator controller
-               
-
-    //        }
-
-    //    }
-
-    //}
-    */
 
 }
