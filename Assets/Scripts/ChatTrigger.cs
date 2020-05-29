@@ -9,7 +9,7 @@ public class ChatTrigger : MonoBehaviour
 
     public void TriggerChat()
     {
-        FindObjectOfType<ChatManager>().StartChat(chat);
+        FindObjectOfType<ChatManager>().StartChat(chat);//This will load into the function what is contained in ChatTriggerObject
     }
 
    
