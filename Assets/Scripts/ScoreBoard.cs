@@ -27,8 +27,6 @@ public class ScoreBoard : MonoBehaviour
     {
         score += scorePerSoap;
         scoreText.text = "+" + score.ToString();
-        //NextLevel();
-        //state = State.Trascending;
         Invoke("NextLevel", 5f);//parameterise time
     }
 
@@ -37,7 +35,6 @@ public class ScoreBoard : MonoBehaviour
     {
         if (score >= 3)
         {
-            //nextScene.text = "You are the master of soap making";
             SceneManager.LoadScene(1);// todo allow for more than 2 levels
         }
 

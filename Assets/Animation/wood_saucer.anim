@@ -637,6 +637,13 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 3.95
+    functionName: DissapearAsh
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 3.9833333
     functionName: PlaySoundWoodSaucerStream
     data: 
@@ -651,13 +658,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4
-    functionName: DissapearAsh
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 4.016667
     functionName: EmptyWoodSaucer
     data: 
@@ -665,14 +665,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 7.2
+  - time: 7.7833333
     functionName: PlaySoundWoodSaucerStream
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 7.2166667
+  - time: 7.8
     functionName: StopWaterStream
     data: 
     objectReferenceParameter: {fileID: 0}

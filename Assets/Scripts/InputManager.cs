@@ -31,6 +31,7 @@ public class InputManager : MonoBehaviour
         ladle = GameObject.Find("Soup_Ladle_A");//Find the object with this name in the world TODO check if GameObject.Find is the best approach
         ladleScript = ladle.GetComponent<LadleScript>();
 
+        //messageToUser= GetComponent<Text>();
 
     }
 
