@@ -2,16 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+
 using Vuforia;
 
 public class LadleScript : MonoBehaviour
 {
     [SerializeField] SmokeScriptBoiler smoke;
     public GameObject  parentLadle;
-    public UnityEvent OnClick = new UnityEvent();
+    
     Animator animatorLadle;
     ScoreBoard scoreBoard;
+
     public bool isTouchLadle = false;
    
 
@@ -23,8 +24,8 @@ public class LadleScript : MonoBehaviour
 
         parentLadle = GameObject.Find("Parent_Ladle");//Find the object with this name in the world
         animatorLadle = parentLadle.GetComponent<Animator>();
-
-        scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world                                           
+        scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
+       
     }
 
 

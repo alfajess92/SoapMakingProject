@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public class TeapotScript : MonoBehaviour
 {
     [SerializeField] SpillScript spill;
 
     public GameObject  waterAsh;
+    public GameObject definedButton;
+
     Animator animator, animatorWaterAsh;
     AudioSource audioSource;
     public bool isTouchTeapot = false;
