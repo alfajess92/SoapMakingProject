@@ -4,6 +4,7 @@ using UnityEngine;
 using Vuforia;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
@@ -13,11 +14,8 @@ public class InputManager : MonoBehaviour
     public LadleScript ladleScript;
     public WoodSaucer woodSaucerScript;
 
-    public ChatTrigger teapotChat, ladleChat, woodSaucerChat, chat;
+    public ChatTrigger teapotChat, ladleChat, woodSaucerChat, chat, winningChat;
     public UnityEvent OnClick = new UnityEvent();
-    //private int count = 0;
-    //public Text messageToUser; //TODO maybe this can be add somewhere else
-
 
 
     //// Start is called before the first frame update
@@ -37,7 +35,8 @@ public class InputManager : MonoBehaviour
         ladleChat = ladle.GetComponent<ChatTrigger>();
 
         chat = FindObjectOfType<ChatTrigger>();
-        
+        winningChat = FindObjectOfType<ChatTrigger>();
+
 
     }
 
@@ -54,38 +53,81 @@ public class InputManager : MonoBehaviour
         {
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == teapot && !teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
+                teapotChat.TriggerChat();
                 Debug.Log("ya vamos activando la fiesta");
                 teapotScript.ServeWaterTeapot();
-                teapotChat.TriggerChat();
+                Debug.Log("Teapot speaking");
+
             }
 
 
 
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == woodsaucer && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
+                woodSaucerChat.TriggerChat();
                 //messageToUser.text = "Let's make some lye";
                 Debug.Log("ya vamos echando el agua");
                 woodSaucerScript.ServeWaterWoodSaucer();
-                woodSaucerChat.TriggerChat();
+                //Debug.Log("woodsaucer speaking");
+
 
             }
 
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer)
 
             {
-                 //messageToUser.text = "This looks good, now let's mix!";
-                 //Debug.Log("ya vamos meneando el mengurje");
-                 ladleScript.MoveLadle();
-                 ladleChat.TriggerChat();
+                ladleChat.TriggerChat();
+
+                int touchCount = Input.touchCount;
+
+                for (int i = 0; i < touchCount; i++)
+                {
+                    Touch touch = Input.GetTouch(i);
+
+
+                    if (Input.touchCount >= 3)
+                    {
+                        print(Input.touchCount);
+                        ladleScript.MoveLadle();
+
+                    }
+                    else
+                    {
+                        print(Input.touchCount);
+                        winningChat.TriggerChat();
+                        Invoke("NextLevel", 10f);//parameterise time
+
+                    }
+
+                    //WinChat.TriggerChat();
+                    //TODO add message that soap is created and next scene is loading
+
+
+
+
+                }
+
+
+
+
+
             }
 
-            
 
-            
+
 
         }
 
 
+
+
+
+
     }
 
-}   
+    void NextLevel()
+
+    {
+        SceneManager.LoadScene(1);// todo allow for more than 2 levels
+    }
+}

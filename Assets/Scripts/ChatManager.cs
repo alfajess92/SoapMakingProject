@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class ChatManager : MonoBehaviour
 {
     public Queue<string> sentences;
-    //public Text nameText,
     public Text chat;
     public Animator animator;
 
@@ -22,12 +21,11 @@ public class ChatManager : MonoBehaviour
 
         Debug.Log("Starting Chat");
         animator.SetBool("isOpen", true);
-        //nameText.text = chat.name;
         sentences.Clear();
 
         foreach (string sentence in chat.sentences)// loop into the chat to load all sentences
         {
-            sentences.Enqueue(sentence);
+            sentences.Enqueue(sentence);//adds to end of queue
         }
 
         DisplayNextSentence();
@@ -42,10 +40,11 @@ public class ChatManager : MonoBehaviour
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        string sentence = sentences.Dequeue();// returns the front of the queue
+
         StopAllCoroutines();//To stop if any type sentences has started before
         //Debug.Log(sentence);
-        //chat1.text = sentence; instead called coroutine
+        //chat.text = sentence; //instead called coroutine
         StartCoroutine(TypeSentence(sentence));
 
     }
@@ -58,6 +57,7 @@ public class ChatManager : MonoBehaviour
         {
             chat.text += letter; //to append the letters
             yield return null;
+            //yield return new WaitForEndOfFrame();
         }
 
 
@@ -65,10 +65,10 @@ public class ChatManager : MonoBehaviour
 
     private void EndChat()
 
-        {
+       {
             //Debug.Log("end");
             animator.SetBool("isOpen", false);
-        }
+       }
 
     
 }
