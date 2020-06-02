@@ -75,24 +75,9 @@ public class InputManager : MonoBehaviour
  
                 ladleScript.MoveLadle();
                 ladleChat.TriggerChat();
-               
+                Invoke("ResetTouch", 5f);
 
             }
-
-
-
-
-            //else if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer && ladleScript.isTouchLadle)
-
-            //{
-
-            ////    ladleScript.MoveLadle();
-
-
-
-            //}
-
-      
 
 
 
@@ -106,6 +91,11 @@ public class InputManager : MonoBehaviour
     }
 
 
-
+    public void ResetTouch()
+    {
+        teapotScript.UntouchTeapot();
+        woodSaucerScript.UntouchWoodSaucer();
+        ladleScript.UntouchLadle();
+    }
     
 }

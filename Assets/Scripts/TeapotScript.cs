@@ -10,7 +10,7 @@ public class TeapotScript : MonoBehaviour
     public GameObject  waterAsh;
    
 
-    Animator animator, animatorWaterAsh;
+    Animator animatorTeapot, animatorWaterAsh;
     AudioSource audioSource;
     public bool isTouchTeapot = false;
 
@@ -32,12 +32,12 @@ public class TeapotScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         //getting the animator of attached to the teapot
-        animator = gameObject.GetComponent<Animator>();
+        animatorTeapot = gameObject.GetComponent<Animator>();
 
 
         //Fetch the current Animation clip information for the base layer
         //AnimatorClipInfo[] animatorClipInfo= this.animator.GetCurrentAnimatorClipInfo(0);
-        AnimationClip[] clipsTeapot = animator.runtimeAnimatorController.animationClips;
+        AnimationClip[] clipsTeapot = animatorTeapot.runtimeAnimatorController.animationClips;
 
         foreach (AnimationClip clip in clipsTeapot)
 
@@ -64,11 +64,12 @@ public class TeapotScript : MonoBehaviour
 
     public void ServeWaterTeapot()
     {
-        animator.SetTrigger("Serve");//inside the animator controller
+        animatorTeapot.SetTrigger("Serve");//inside the animator controller
         animatorWaterAsh.SetTrigger("Fill");
         //isTouchTeapot = true;
 
         //Called the bool condition only when the animatin is finished
+        print(teapotClipLength);
         Invoke("TouchTeapot", teapotClipLength);//
     }
 

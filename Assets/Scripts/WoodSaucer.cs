@@ -49,10 +49,11 @@ public class WoodSaucer : MonoBehaviour
 
     public void ServeWaterWoodSaucer()
     {
-        Debug.Log("echale");
+        //Debug.Log("echale");
         animatorWoodSaucer.SetTrigger("ServeAsh");
 
-        //Called the bool condition only when the animatin is finished
+        //Called the bool condition only when the animation is finished
+        print(woodSaucerClipLength);
         Invoke("TouchWoodSaucer", woodSaucerClipLength);
         //isTouchWoodsaucer = true;
        

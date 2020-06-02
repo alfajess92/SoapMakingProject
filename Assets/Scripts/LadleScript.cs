@@ -14,7 +14,7 @@ public class LadleScript : MonoBehaviour
     ScoreBoard scoreBoard;
 
     public bool isTouchLadle = false;
-   float 
+    float ladleClipLength;
 
     //// Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class LadleScript : MonoBehaviour
         scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
 
 
-        AnimationClip[] clipsLadle = animator.runtimeAnimatorController.animationClips;
+        AnimationClip[] clipsLadle = animatorLadle.runtimeAnimatorController.animationClips;
 
         foreach (AnimationClip clip in clipsLadle)
 
@@ -45,7 +45,7 @@ public class LadleScript : MonoBehaviour
         StartSmoke();
         scoreBoard.ScoreSoap();
         //isTouchLadle = true;
-
+        print(ladleClipLength);
         Invoke("TouchLadle", ladleClipLength);//
     }
 
@@ -64,7 +64,7 @@ public class LadleScript : MonoBehaviour
 
 
 
-    //Methods called by the animator controller
+    
 
     public void StartSmoke()
     {
