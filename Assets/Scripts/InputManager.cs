@@ -34,13 +34,9 @@ public class InputManager : MonoBehaviour
         ladle = GameObject.Find("Soup_Ladle_A");//Find the object with this name in the world TODO check if GameObject.Find is the best approach
         ladleScript = ladle.GetComponent<LadleScript>();
         ladleChat = ladle.GetComponent<ChatTrigger>();
-
-        chat = FindObjectOfType<ChatTrigger>();
-
-
+        //chat = FindObjectOfType<ChatTrigger>();
 
     }
-
 
 
     // Update is called once per frame
@@ -57,7 +53,6 @@ public class InputManager : MonoBehaviour
                 teapotChat.TriggerChat();
                 Debug.Log("ya vamos activando la fiesta");
                 teapotScript.ServeWaterTeapot();
-
 
             }
 
@@ -77,12 +72,15 @@ public class InputManager : MonoBehaviour
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer)
 
             {
-                
+ 
                 ladleScript.MoveLadle();
                 ladleChat.TriggerChat();
-
+               
 
             }
+
+
+
 
             //else if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer && ladleScript.isTouchLadle)
 
@@ -93,6 +91,8 @@ public class InputManager : MonoBehaviour
 
 
             //}
+
+      
 
 
 
@@ -105,5 +105,7 @@ public class InputManager : MonoBehaviour
 
     }
 
-  
+
+
+    
 }

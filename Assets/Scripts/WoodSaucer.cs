@@ -12,6 +12,7 @@ public class WoodSaucer : MonoBehaviour
     public GameObject waterAsh, ash;
     public bool isTouchWoodsaucer = false;
     public bool isEmpty = false;
+    float woodSaucerClipLength, waterAshClipLength;
 
     // Start is called before the first frame update
     void Start()
@@ -24,38 +25,83 @@ public class WoodSaucer : MonoBehaviour
 
         ash= GameObject.Find("ash2");
         animatorAsh = ash.GetComponent<Animator>();
+
+
+        AnimationClip[] clipsWoodSaucer = animatorWoodSaucer.runtimeAnimatorController.animationClips;
+
+        foreach (AnimationClip clip in clipsWoodSaucer)
+
+        {
+            woodSaucerClipLength = clip.length;
+        }
+
+        //AnimationClip[] clipsWaterAsh = animatorWaterAsh.runtimeAnimatorController.animationClips;
+
+        //foreach (AnimationClip clip in clipsWaterAsh)
+
+        //{
+        //    waterAshClipLength = clip.length;
+        //}
+
+
+
     }
 
-   public void ServeWaterWoodSaucer()
+    public void ServeWaterWoodSaucer()
     {
         Debug.Log("echale");
         animatorWoodSaucer.SetTrigger("ServeAsh");
-        isTouchWoodsaucer = true;
+
+        //Called the bool condition only when the animatin is finished
+        Invoke("TouchWoodSaucer", woodSaucerClipLength);
+        //isTouchWoodsaucer = true;
        
     }
+
+    public void TouchWoodSaucer()
+    {
+        isTouchWoodsaucer = true;
+    }
+
+    //Called from InputManager to restart the interactions
+    public void UntouchWoodSaucer()
+    {
+        isTouchWoodsaucer = false;
+    }
+
+
+
+
+
+    //Methods called by the animator controller
 
     public void EmptyWoodSaucer()
     {
         animatorWaterAsh.SetTrigger("EmptyWoodSaucer");
     }
 
+    //Methods called by the animator controller
 
     public void DissapearAsh()
     {
         animatorAsh.SetTrigger("Dissapear");
     }
 
+    //Methods called by the animator controller
 
     public void PlayWaterStream()
     {
         spill.PlayWaterStreamWoodSaucer();
     }
 
+    //Methods called by the animator controller
+
     public void StopWaterStream()
     {
         spill.StopWaterStreamWoodSaucer();
     }
 
+    //Methods called by the animator controller
 
     public void PlaySoundWoodSaucerStream()//TODO check if this has to be here
 

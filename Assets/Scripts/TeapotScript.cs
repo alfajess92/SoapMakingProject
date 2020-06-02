@@ -14,9 +14,11 @@ public class TeapotScript : MonoBehaviour
     AudioSource audioSource;
     public bool isTouchTeapot = false;
 
-    AnimatorStateInfo animationState;
-    AnimatorClipInfo[] animatorClip;
-    float mytime;
+    //string clipName;
+    //AnimatorStateInfo animationState;
+    //AnimatorClipInfo[] animatorClipInfo;
+    float teapotClipLength, waterAshClipLength;
+ 
 
 
     //// Start is called before the first frame update
@@ -24,16 +26,39 @@ public class TeapotScript : MonoBehaviour
 
     {
         waterAsh = GameObject.Find("WaterProDaytime");
-        animator = GetComponent<Animator>();
+
+        //getting the animator attached to the water in the ash
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
 
+        //getting the animator of attached to the teapot
+        animator = gameObject.GetComponent<Animator>();
 
-        animationState = animator.GetCurrentAnimatorStateInfo(0);
-        animatorClip = animator.GetCurrentAnimatorClipInfo(0);
-        mytime = animatorClip[0].clip.length * animationState.normalizedTime;
 
-        Debug.Log(mytime);
+        //Fetch the current Animation clip information for the base layer
+        //AnimatorClipInfo[] animatorClipInfo= this.animator.GetCurrentAnimatorClipInfo(0);
+        AnimationClip[] clipsTeapot = animator.runtimeAnimatorController.animationClips;
+
+        foreach (AnimationClip clip in clipsTeapot)
+
+        {
+            teapotClipLength = clip.length;
+        }
+
+        //AnimationClip[] clipsWaterAsh= animatorWaterAsh.runtimeAnimatorController.animationClips;
+
+        //foreach (AnimationClip clip in clipsTeapot)
+
+        //{
+        //    waterAshClipLength = clip.length;
+        //}
+
+        //Access the current length of the clip and name
+        ////currentClipLength = animatorClipInfo[0].clip.length;
+        //clipName = animatorClipInfo[0].clip.name;
+
+        //animationState = animator.GetCurrentAnimatorStateInfo(0);
+
     }
 
 
@@ -42,28 +67,42 @@ public class TeapotScript : MonoBehaviour
         animator.SetTrigger("Serve");//inside the animator controller
         animatorWaterAsh.SetTrigger("Fill");
         //isTouchTeapot = true;
-        Debug.Log(mytime);
-        Invoke("ReServeWaterTeapot", mytime);//
+
+        //Called the bool condition only when the animatin is finished
+        Invoke("TouchTeapot", teapotClipLength);//
     }
 
 
-    public void ReServeWaterTeapot()
+    public void TouchTeapot()
     {
         isTouchTeapot = true;
     }
 
+
+    //Called from InputManager to restart the interactions
+    public void UntouchTeapot()
+    {
+        isTouchTeapot = false;
+    }
+
+
+
+
+    //Methods called by the animator controller
 
     public void PlayWaterStream()//to add in the animator controller as a parameter
     {
         spill.PlayWaterStreamTeapot();
     }
 
+    //Methods called by the animator controller
 
     public void StopWaterStream()
     {
         spill.StopWaterStreamTeapot();
     }
 
+    //Methods called by the animator controller
 
     public void PlaySoundTeapotStream()//TODO check if this has to be here
 

@@ -11,7 +11,7 @@ public class ScoreBoard : MonoBehaviour
 
     int score;
     Text scoreText;
-    public ChatTrigger winningChat;
+    //public ChatTrigger winningChat;
     //enum State {Scenesoap, Scenelab, Trascending}
     //State state = State.Scenesoap;
 
@@ -20,7 +20,7 @@ public class ScoreBoard : MonoBehaviour
     {
         scoreText = GetComponent<Text>();
         scoreText.text = "Score: "+ score.ToString();
-        winningChat = FindObjectOfType<ChatTrigger>();
+        //winningChat = FindObjectOfType<ChatTrigger>();
     }
 
 
@@ -28,7 +28,7 @@ public class ScoreBoard : MonoBehaviour
     {
         score += scorePerSoap;
         scoreText.text = "Score: +" + score.ToString();
-        winningChat.TriggerChat();
+        //winningChat.TriggerChat();
         Invoke("NextLevel", 10f);//parameterise time
     }
 
