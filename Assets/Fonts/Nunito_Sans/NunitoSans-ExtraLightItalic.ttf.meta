@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 91bc342713fca4a908a61fe4b54d613a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Nunito Sans
+  fontNames:
+  - Nunito Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5f4b7a76e04954c979664a75d53ce974, type: 3}
+  - {fileID: 12800000, guid: 1610a107f9be147c39f0206d3e7d9f38, type: 3}
+  - {fileID: 12800000, guid: 409b14272615b4ea8a1194a20b87a82f, type: 3}
+  - {fileID: 12800000, guid: 15b735776b62e49dca791d4e0adbbbf7, type: 3}
+  - {fileID: 12800000, guid: 1373cead8f7494ea0af974a0ca7b5dec, type: 3}
+  - {fileID: 12800000, guid: 7f7109be6e8164f7995a8ee49bf37b9e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

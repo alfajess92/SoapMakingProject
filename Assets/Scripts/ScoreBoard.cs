@@ -8,12 +8,16 @@ using UnityEngine.SceneManagement;
 public class ScoreBoard : MonoBehaviour
 {
     [SerializeField] int scorePerSoap = 0;//maybe should be in teapot
-
+    public PanelManagerScript panelManagerScript;
+    public ChatManager chatManagerScript;
     int score;
     Text scoreText;
+
     //public ChatTrigger winningChat;
     //enum State {Scenesoap, Scenelab, Trascending}
     //State state = State.Scenesoap;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,19 +33,31 @@ public class ScoreBoard : MonoBehaviour
         score += scorePerSoap;
         scoreText.text = "Score: +" + score.ToString();
         //winningChat.TriggerChat();
-        Invoke("NextLevel", 10f);//parameterise time
+        Invoke("NextLevel", 1f);//parameterise time
+        //NextLevel();
+
     }
 
 
+    //public void NextLevel()
+    //{
+    //    if (score >= 3)
+    //    {
+    //        SceneManager.LoadScene(1);// todo allow for more than 2 levels
+    //    }
+
+    //}
+
+    
     public void NextLevel()
     {
         if (score >= 3)
         {
-            SceneManager.LoadScene(1);// todo allow for more than 2 levels
+            chatManagerScript.EndChat();
+            panelManagerScript.EnterNextScenePanel();
+           
         }
-
     }
-
 
 
 }

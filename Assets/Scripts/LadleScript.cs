@@ -15,6 +15,7 @@ public class LadleScript : MonoBehaviour
 
     public bool isTouchLadle = false;
     float ladleClipLength;
+    ChatTrigger chat;
 
     //// Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class LadleScript : MonoBehaviour
         parentLadle = GameObject.Find("Parent_Ladle");//Find the object with this name in the world
         animatorLadle = parentLadle.GetComponent<Animator>();
         scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
-
+        chat = GetComponent<ChatTrigger>();
 
         AnimationClip[] clipsLadle = animatorLadle.runtimeAnimatorController.animationClips;
 
@@ -48,6 +49,9 @@ public class LadleScript : MonoBehaviour
         print(ladleClipLength);
         //Invoke("TouchLadle", ladleClipLength);//
         TouchLadle();
+        chat.enabled = false;//after appearing once the chat of the ladle will be deactivated
+       
+
     }
 
 
@@ -80,6 +84,7 @@ public class LadleScript : MonoBehaviour
        smoke.StopSmokeBoiler();
     }
 
+    
     
 }
   

@@ -9,16 +9,18 @@ using UnityEngine.SceneManagement;
 public class InputManager : MonoBehaviour
 {
 
-    public GameObject ladle, teapot, woodsaucer, soapBar, table;
+    public GameObject ladle, teapot, woodsaucer, soapBar, table, startingChat;
     public TeapotScript teapotScript;
     public LadleScript ladleScript;
     public WoodSaucer woodSaucerScript;
     public SoapCreator soapBarScript;
     public Transform tableTransform;
+    public PanelManagerScript panelManagerScript;
+    public ChatManager chatManagerScript;
 
     Vector3 gravityVector;
 
-    public ChatTrigger teapotChat, ladleChat, woodSaucerChat;
+    public ChatTrigger teapotChat, ladleChat, woodSaucerChat, startingChatTrigger;
     public ChatTrigger chat;
     public UnityEvent OnClick = new UnityEvent();
 
@@ -41,10 +43,10 @@ public class InputManager : MonoBehaviour
         ladle = GameObject.Find("Soup_Ladle_A");//Find the object with this name in the world TODO check if GameObject.Find is the best approach
         ladleScript = ladle.GetComponent<LadleScript>();
         ladleChat = ladle.GetComponent<ChatTrigger>();
-        //chat = FindObjectOfType<ChatTrigger>();
 
-        //soapBar = GameObject.Find("SoapBar");
-        
+        //startingChat = GameObject.Find("StartingChat");
+        //startingChatTrigger = startingChat.GetComponent<ChatTrigger>();
+
 
     }
 
@@ -55,9 +57,9 @@ public class InputManager : MonoBehaviour
         //Debug.Log("ya encontre la cuchara");
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
+        //startingChatTrigger.TriggerChat();
 
 
-        
         gravityVector = tableTransform.localToWorldMatrix * (new Vector3(0f, -1f, 0f));
         //tablePosition = new Vector3(tableTransform.localPosition.x, tableTransform.localPosition.y, tableTransform.localPosition.z);
 
@@ -68,10 +70,8 @@ public class InputManager : MonoBehaviour
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == teapot && !teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 teapotChat.TriggerChat();
-                Debug.Log("ya vamos activando la fiesta");
-                
                 teapotScript.ServeWaterTeapot();
-                soapBarScript.CreateSoap();
+                //soapBarScript.CreateSoap();
 
             }
 
@@ -80,11 +80,7 @@ public class InputManager : MonoBehaviour
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == woodsaucer && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 woodSaucerChat.TriggerChat();
-
-                Debug.Log("ya vamos echando el agua");
                 woodSaucerScript.ServeWaterWoodSaucer();
-                //Debug.Log("woodsaucer speaking");
-
 
             }
 
@@ -94,9 +90,11 @@ public class InputManager : MonoBehaviour
                 print("touchladle");
                 ladleScript.MoveLadle();
                 ladleChat.TriggerChat();
+                //TODO only create soap after X amount of mixing
                 soapBarScript.CreateSoap();
-                //soapBarScript.Destruction();
-                //Invoke ("ResetTouch", 1f);
+
+                //panelManagerScript.EnterNextScenePanel();
+                //Invoke("ResetTouch", 1f);
 
             }
 
@@ -115,14 +113,17 @@ public class InputManager : MonoBehaviour
     public void ResetTouch()
     {
         print("reset everything");
+        panelManagerScript.ExitNextScenePanel();
         teapotScript.UntouchTeapot();
         woodSaucerScript.UntouchWoodSaucer();
         ladleScript.UntouchLadle();
         print(teapotScript.isTouchTeapot);
         print(woodSaucerScript.isTouchWoodsaucer);
         print(ladleScript.isTouchLadle);
+        //soapBarScript.DestroySoap();
+
     }
 
 
-    
+
 }

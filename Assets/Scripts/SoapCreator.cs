@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class SoapCreator : MonoBehaviour
 {
-    // Start is called before the first frame update
     
     [SerializeField]
     Rigidbody rigidSoap;
     public Transform soapPos;
-
-
-
     public GameObject soapBar;
     public GameObject soapOrigin;
     public Component[] componentRigidBodyChildren;
