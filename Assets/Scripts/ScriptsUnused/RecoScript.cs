@@ -6,6 +6,7 @@ using Vuforia;
 public class RecoScript : MonoBehaviour, ITrackableEventHandler
 
 {
+    public SoapCreator soapCreatorScript;
     private TrackableBehaviour mTrackableBehaviour;
 
     // Start is called before the first frame update
@@ -24,13 +25,13 @@ public class RecoScript : MonoBehaviour, ITrackableEventHandler
             newStatus==TrackableBehaviour.Status.TRACKED||
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
-            Debug.Log("move ladle");
-            MoveLadle.current.start = true;
+            soapCreatorScript.TurnOnGravity();
+            print("Turned Gravity on");
         }
         else
         {
-            Debug.Log("reset ladle position");
-            MoveLadle.current.start = false;
+            soapCreatorScript.TurnOffGravity();
+            print("Turned Gravity off");
         }
     }
 

@@ -46,7 +46,8 @@ public class LadleScript : MonoBehaviour
         scoreBoard.ScoreSoap();
         //isTouchLadle = true;
         print(ladleClipLength);
-        Invoke("TouchLadle", ladleClipLength);//
+        //Invoke("TouchLadle", ladleClipLength);//
+        TouchLadle();
     }
 
 
