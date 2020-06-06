@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -70,6 +69,12 @@ public class ChatManager : MonoBehaviour
     }
 
 
+    public void EndChatForever()
+
+    {
+        animator.enabled = false;
+    }
+
     //public void DisplayNextSentence()
     //{
 
@@ -104,6 +109,7 @@ public class ChatManager : MonoBehaviour
 
 
     //}
+
 
 
 }

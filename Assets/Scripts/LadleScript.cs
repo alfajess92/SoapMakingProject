@@ -47,9 +47,11 @@ public class LadleScript : MonoBehaviour
         scoreBoard.ScoreSoap();
         //isTouchLadle = true;
         print(ladleClipLength);
+
         //Invoke("TouchLadle", ladleClipLength);//
         TouchLadle();
-        chat.enabled = false;//after appearing once the chat of the ladle will be deactivated
+        //print("the chat is gone forever");
+        //chat.EndChatAfterTouch();//after appearing once the chat of the ladle will be deactivated
        
 
     }

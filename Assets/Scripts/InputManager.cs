@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class InputManager : MonoBehaviour
 {
 
-    public GameObject ladle, teapot, woodsaucer, soapBar, table, startingChat;
+    public GameObject ladle, teapot, woodsaucer, soapBar, table;
     public TeapotScript teapotScript;
     public LadleScript ladleScript;
     public WoodSaucer woodSaucerScript;
@@ -20,8 +20,8 @@ public class InputManager : MonoBehaviour
 
     Vector3 gravityVector;
 
-    public ChatTrigger teapotChat, ladleChat, woodSaucerChat, startingChatTrigger;
-    public ChatTrigger chat;
+    public ChatTrigger teapotChat, ladleChat, woodSaucerChat;
+    //public ChatTrigger chat;
     public UnityEvent OnClick = new UnityEvent();
 
 
@@ -86,15 +86,15 @@ public class InputManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer)
 
+                
             {
+                
                 print("touchladle");
                 ladleScript.MoveLadle();
                 ladleChat.TriggerChat();
                 //TODO only create soap after X amount of mixing
                 soapBarScript.CreateSoap();
 
-                //panelManagerScript.EnterNextScenePanel();
-                //Invoke("ResetTouch", 1f);
 
             }
 
@@ -117,9 +117,6 @@ public class InputManager : MonoBehaviour
         teapotScript.UntouchTeapot();
         woodSaucerScript.UntouchWoodSaucer();
         ladleScript.UntouchLadle();
-        print(teapotScript.isTouchTeapot);
-        print(woodSaucerScript.isTouchWoodsaucer);
-        print(ladleScript.isTouchLadle);
         //soapBarScript.DestroySoap();
 
     }
