@@ -203,15 +203,15 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1946345501}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 0.835
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1937924430}
         m_MethodName: AdjustVolume
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1457,6 +1457,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'It''s  time to make tons of soap! '
       objectReference: {fileID: 0}
+    - target: {fileID: 2971324551832238835, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -154.94043
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971324551832238835, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -119.91992
+      objectReference: {fileID: 0}
     - target: {fileID: 3103984520517514871, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: m_RootOrder
@@ -1470,7 +1480,7 @@ PrefabInstance:
     - target: {fileID: 7189868646147478878, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -77.84009
+      value: -77.83984
       objectReference: {fileID: 0}
     - target: {fileID: 7986821548217877781, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
@@ -1931,17 +1941,17 @@ PrefabInstance:
     - target: {fileID: 7729756938438519794, guid: 9396d9b662ab3bf44a56a6a575a516d8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 7729756938438519794, guid: 9396d9b662ab3bf44a56a6a575a516d8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7729756938438519794, guid: 9396d9b662ab3bf44a56a6a575a516d8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8805174344603111574, guid: 9396d9b662ab3bf44a56a6a575a516d8,
         type: 3}
@@ -1994,8 +2004,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e82ae065e40d4e2099a259915f170d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeincrease: 10
   liquidMesh: {fileID: 2015147117}
+  beaker: {fileID: 1937924425}
+  MySlider: {fileID: 5194856}
 --- !u!1 &1943706075
 GameObject:
   m_ObjectHideFlags: 0
