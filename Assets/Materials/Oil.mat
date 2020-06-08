@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: brown
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Oil
+  m_Shader: {fileID: 4800000, guid: d31490272250855449d4d7012ee00626, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,6 +72,8 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - __dirty: 1
     m_Colors:
+    - _Albedo: {r: 0.8867924, g: 0.87736434, b: 0.38065147, a: 0}
     - _Color: {r: 0.7075472, g: 0.5123199, b: 0.23696157, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

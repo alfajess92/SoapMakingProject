@@ -7,7 +7,7 @@ public class AddVolume : MonoBehaviour
 {
 
     //public float volumeincrease= 0.1f;
-    public GameObject liquidMesh, beaker;
+    public GameObject liquidMesh, container;
     Transform liquidMeshTransform;
 
     //Vector3 changeVolume = new Vector3(0, 1f, 0);
@@ -18,7 +18,7 @@ public class AddVolume : MonoBehaviour
     private void Start()
     {
 
-        liquidMeshTransform= beaker.transform.Find("Liquid");
+        liquidMeshTransform= container.transform.Find("Liquid");
         //if (liquidMesh != null)
         //{
         //    Debug.Log("A child with the name 'liquid' attached to the player");

@@ -24,4 +24,4 @@ Material:
     - _Metallic: 0
     - __dirty: 1
     m_Colors:
-    - _Albedo: {r: 0.9150943, g: 0.9011844, b: 0.25467247, a: 0}
+    - _Albedo: {r: 0.9150943, g: 0.91224384, b: 0.7640174, a: 0}
