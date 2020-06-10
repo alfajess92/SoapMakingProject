@@ -20,10 +20,10 @@ public class WoodSaucer : MonoBehaviour
         animatorWoodSaucer = GetComponent<Animator>();
         audiosourceWoodSaucer = GetComponent<AudioSource>();
 
-        waterAsh = GameObject.Find("WaterProDaytime");
+        //waterAsh = GameObject.Find("WaterProDaytime");
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
 
-        ash= GameObject.Find("ash2");
+        //ash= GameObject.Find("ash2");
         animatorAsh = ash.GetComponent<Animator>();
 
 

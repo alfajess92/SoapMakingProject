@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+//using UnityEngine.Events;
 
 public class TeapotScript : MonoBehaviour
 {
@@ -25,7 +25,7 @@ public class TeapotScript : MonoBehaviour
     void Start()
 
     {
-        waterAsh = GameObject.Find("WaterProDaytime");
+        waterAsh = GameObject.Find("WaterLayer");
 
         //getting the animator attached to the water in the ash
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
