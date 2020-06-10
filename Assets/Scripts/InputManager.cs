@@ -74,7 +74,7 @@ public class InputManager : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
         {
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == mediumBoiler && mediumBoilerScript.isTouchMediumBoiler! && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == mediumBoiler && !mediumBoilerScript.isTouchMediumBoiler && !teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 mediumBoilerChat.TriggerChat();
                 mediumBoilerScript.ServeOilBoiler();
@@ -113,9 +113,6 @@ public class InputManager : MonoBehaviour
 
 
         }
-
-
-
 
 
 

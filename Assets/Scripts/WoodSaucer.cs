@@ -12,7 +12,7 @@ public class WoodSaucer : MonoBehaviour
     public GameObject waterAsh, ash;
     public bool isTouchWoodsaucer = false;
     public bool isEmpty = false;
-    float woodSaucerClipLength, waterAshClipLength;
+    float woodSaucerClipLength;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,10 @@ public class WoodSaucer : MonoBehaviour
         animatorWoodSaucer = GetComponent<Animator>();
         audiosourceWoodSaucer = GetComponent<AudioSource>();
 
-        //waterAsh = GameObject.Find("WaterProDaytime");
+        //waterAsh = GameObject.Find("WaterProDaytime");//is not needed
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
 
-        //ash= GameObject.Find("ash2");
+        //ash= GameObject.Find("ash2");//is not needed
         animatorAsh = ash.GetComponent<Animator>();
 
 

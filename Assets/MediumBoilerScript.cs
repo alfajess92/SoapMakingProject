@@ -8,7 +8,7 @@ public class MediumBoilerScript : MonoBehaviour
 
     SpillScriptOil spill;
 
-    public GameObject oilLayer;
+    public GameObject oilLayer, oilLayerBigBoiler;
 
 
     Animator animatorMediumBoiler, animatorBigBoiler, animatorOilLayer;
@@ -26,6 +26,7 @@ public class MediumBoilerScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         //getting the animator of attached to the mediumboiler
+        animatorBigBoiler = oilLayerBigBoiler.GetComponent<Animator>();
         animatorMediumBoiler = gameObject.GetComponent<Animator>();
         animatorOilLayer = oilLayer.GetComponent<Animator>();
 
@@ -46,8 +47,6 @@ public class MediumBoilerScript : MonoBehaviour
         animatorMediumBoiler.SetTrigger("Serve");//inside the animator controller
       //TODO check if this animation can be called from animator controller as event
        
-      
-
         //Called the bool condition only when the animatin is finished
         print(mediumBoilerClipLength);
         Invoke("TouchMediumBoiler", mediumBoilerClipLength);//Touch after the animation is done
