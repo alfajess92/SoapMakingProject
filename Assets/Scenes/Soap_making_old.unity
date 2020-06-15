@@ -618,6 +618,16 @@ PrefabInstance:
       propertyPath: chat.sentences.Array.data[1]
       value: Let's start by pouring the oil in the big boiler.
       objectReference: {fileID: 0}
+    - target: {fileID: 2474790018987546159, guid: 6d671769e192b492d9a6a243049043a3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -154.94043
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474790018987546159, guid: 6d671769e192b492d9a6a243049043a3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -119.91992
+      objectReference: {fileID: 0}
     - target: {fileID: 4819927665130813411, guid: 6d671769e192b492d9a6a243049043a3,
         type: 3}
       propertyPath: m_Name
@@ -661,7 +671,7 @@ PrefabInstance:
     - target: {fileID: 4819927665921075625, guid: 6d671769e192b492d9a6a243049043a3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.101
       objectReference: {fileID: 0}
     - target: {fileID: 4819927665921075625, guid: 6d671769e192b492d9a6a243049043a3,
         type: 3}
@@ -707,12 +717,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 916646811}
+      objectReference: {fileID: 763301226}
     - target: {fileID: 4819927665921075631, guid: 6d671769e192b492d9a6a243049043a3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 731590423}
+      objectReference: {fileID: 1169699606}
     - target: {fileID: 4819927665928850476, guid: 6d671769e192b492d9a6a243049043a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -772,6 +782,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7540135141648300418, guid: 6d671769e192b492d9a6a243049043a3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -77.83984
       objectReference: {fileID: 0}
     - target: {fileID: 8106593380489233789, guid: 6d671769e192b492d9a6a243049043a3,
         type: 3}
@@ -981,78 +996,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &731590423
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'TemporalMarker2Material
-
-    -1272'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b36f617c6f0b4135a6abe9933093eee4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
---- !u!114 &767795252 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8708023519938548999, guid: 6d671769e192b492d9a6a243049043a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 499608841}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &852787523 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 9485b0c79d11e2e4d0007da98d76c639,
-    type: 3}
-  m_PrefabInstance: {fileID: 1687402184}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &852787524
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852787523}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 77b69b3c167f64ec4bc02f1c9df2b79b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!43 &916646811
+--- !u!43 &763301226
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh-1218
+  m_Name: ImageTargetMesh-1164
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1209,6 +1159,43 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &767795252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8708023519938548999, guid: 6d671769e192b492d9a6a243049043a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 499608841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &852787523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 9485b0c79d11e2e4d0007da98d76c639,
+    type: 3}
+  m_PrefabInstance: {fileID: 1687402184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &852787524
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852787523}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77b69b3c167f64ec4bc02f1c9df2b79b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &995128606 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6885829930733687401, guid: c6d32bb4f937c4b1fa8d65b52debe22f,
@@ -1400,6 +1387,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a1e800849cd14dcc87083bf0f645265, type: 3}
+--- !u!21 &1169699606
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'TemporalMarker2Material
+
+    -1222'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b36f617c6f0b4135a6abe9933093eee4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1175535860
 GameObject:
   m_ObjectHideFlags: 0
