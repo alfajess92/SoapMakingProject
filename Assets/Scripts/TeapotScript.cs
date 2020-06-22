@@ -25,7 +25,7 @@ public class TeapotScript : MonoBehaviour
     void Start()
 
     {
-        //waterAsh = GameObject.Find("WaterLayer");
+        waterAsh = GameObject.Find("WaterLayer");
 
         //getting the animator attached to the water in the ash
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
