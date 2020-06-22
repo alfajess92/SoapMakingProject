@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class InputManagerLab : MonoBehaviour
 {
-    public GameObject beaker, burette, balance;
+    public GameObject beaker, cylinder, balance;
     //public TeapotScript teapotScript;
     //public LadleScript ladleScript;
     //public WoodSaucer woodSaucerScript;
@@ -19,9 +19,11 @@ public class InputManagerLab : MonoBehaviour
 
     Vector3 gravityVector;
 
-    public ChatTrigger beakerChat, buretteChat, balanceChat;
+    public ChatTrigger beakerChat, cylinderChat, balanceChat;
     //public ChatTrigger chat;
     public UnityEvent OnClick = new UnityEvent();
+
+    public SaponificationScript saponificationScript;
 
 
     //// Start is called before the first frame update
@@ -43,7 +45,7 @@ public class InputManagerLab : MonoBehaviour
         //ladleChat = ladle.GetComponent<ChatTrigger>();
 
 
-
+        saponificationScript = beaker.GetComponent<SaponificationScript>();
 
     }
 
@@ -68,8 +70,6 @@ public class InputManagerLab : MonoBehaviour
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == beaker)
             {
                 beakerChat.TriggerChat();
-                //teapotScript.ServeWaterTeapot();
-                ////soapBarScript.CreateSoap();
                 print("beaker is touched");
 
             }
@@ -77,27 +77,23 @@ public class InputManagerLab : MonoBehaviour
 
 
             //if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == woodsaucer && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == burette)
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == cylinder)
             {
-                //woodSaucerChat.TriggerChat();
-                //woodSaucerScript.ServeWaterWoodSaucer();
-                print("burette is touched");
+
+
+                print("cylinder is touched");
+
+                saponificationScript.PercentageSaponification();
+
+
             }
 
             //if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer)
 
-
             //{
 
-            //    //print("touchladle");
-            //    //ladleScript.MoveLadle();
-            //    //ladleChat.TriggerChat();
-            //    ////TODO only create soap after X amount of mixing
-            //    //soapBarScript.CreateSoap();
-
-
             //}
-
+            
 
 
         }

@@ -15,6 +15,8 @@ public class AddVolume : MonoBehaviour
 
     public Slider MySlider;
 
+    public float addedVolume;
+
     private void Start()
     {
 
@@ -33,18 +35,13 @@ public class AddVolume : MonoBehaviour
 
     
 
-
-
         ////liquidMesh = GameObject.Find("Liquid");
         
 
         //liquidMeshTransform = GetComponentInChildren<Transform>();
         //currentVolume = liquidMeshTransform.localScale;
 
-       
-    
-
-
+ 
 
 ////Update is called once per frame
 //void Update()
@@ -58,7 +55,6 @@ public void AdjustVolume()
         //currentVolume += changeVolume;
         print("adding volume");
 
-
         //currentVolume = Vector3.Scale(currentVolume, changeVolume);
 
         //liquidMeshTransform.localScale = changeVolume;
@@ -66,10 +62,15 @@ public void AdjustVolume()
 
         liquidMeshTransform.localScale = new Vector3(liquidMeshTransform.localScale.x, MySlider.value, liquidMeshTransform.localScale.z);
 
+        ReadVolume();
 
-
+        print(addedVolume);
     }
 
 
 
+    public void ReadVolume()
+    {
+        addedVolume = MySlider.value*100;
+    }
 }
