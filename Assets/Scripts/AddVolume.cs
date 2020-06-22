@@ -16,6 +16,7 @@ public class AddVolume : MonoBehaviour
     public Slider MySlider;
 
     public float addedVolume;
+    public float factorVolume;
 
     private void Start()
     {
@@ -71,6 +72,6 @@ public void AdjustVolume()
 
     public void ReadVolume()
     {
-        addedVolume = MySlider.value*100;
+        addedVolume = MySlider.value*100*factorVolume;//to multiply the factor of the slider for "real" volume
     }
 }

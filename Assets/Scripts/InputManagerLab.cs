@@ -8,7 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class InputManagerLab : MonoBehaviour
 {
-    public GameObject beaker, cylinder, balance;
+    public GameObject beaker, cylinder, balance, sliderLye, sliderOil, glassRod;
+
+    Slider sliderScriptLye, sliderScriptOil;
+
     //public TeapotScript teapotScript;
     //public LadleScript ladleScript;
     //public WoodSaucer woodSaucerScript;
@@ -20,7 +23,7 @@ public class InputManagerLab : MonoBehaviour
     Vector3 gravityVector;
 
     public ChatTrigger beakerChat, cylinderChat, balanceChat;
-    //public ChatTrigger chat;
+    
     public UnityEvent OnClick = new UnityEvent();
 
     public SaponificationScript saponificationScript;
@@ -34,6 +37,16 @@ public class InputManagerLab : MonoBehaviour
         //teapot = GameObject.Find("Teapot");//Find the object with this name in the world
         //teapotScript = teapot.GetComponent<TeapotScript>();
         beakerChat = beaker.GetComponent<ChatTrigger>();
+
+        //sliderLye = GameObject.Find("Parent_Slider Lye");
+        
+
+        sliderScriptLye = sliderLye.GetComponentInChildren<Slider>();
+
+        sliderScriptOil = sliderOil.GetComponentInChildren<Slider>();
+
+        sliderLye.SetActive(false);
+        sliderOil.SetActive(false);
 
         //woodsaucer = GameObject.Find("Wood_Saucer");//Find the object with this name in the world
         //woodSaucerScript = woodsaucer.GetComponent<WoodSaucer>();
@@ -71,6 +84,8 @@ public class InputManagerLab : MonoBehaviour
             {
                 beakerChat.TriggerChat();
                 print("beaker is touched");
+                sliderOil.SetActive(true);
+
 
             }
 
@@ -79,13 +94,11 @@ public class InputManagerLab : MonoBehaviour
             //if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == woodsaucer && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == cylinder)
             {
-
-
+                //sliderOil.SetActive(false);
                 print("cylinder is touched");
-
-                saponificationScript.PercentageSaponification();
-
-
+                sliderLye.SetActive(true);
+                
+               
             }
 
             //if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer)
@@ -93,7 +106,25 @@ public class InputManagerLab : MonoBehaviour
             //{
 
             //}
-            
+
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == glassRod)
+            {
+                //sliderOil.SetActive(false);
+                print("time to mix");
+                sliderLye.SetActive(false);
+
+                //Hinder the interaction with the slider
+                sliderScriptLye.enabled = false;
+                sliderScriptOil.enabled = false;
+
+                sliderOil.SetActive(false);
+                saponificationScript.PercentageSaponification();
+
+
+
+            }
+
+
 
 
         }

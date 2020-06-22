@@ -6,7 +6,7 @@ using System;
 public class ChatTrigger : MonoBehaviour
 {
     public Chat chat;
-    public Animator animator;
+    //public Animator animator;
 
 
     public void TriggerChat()

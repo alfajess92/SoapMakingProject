@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
     {
         mediumBoilerScript = mediumBoiler.GetComponent<MediumBoilerScript>();
         mediumBoilerChat = mediumBoiler.GetComponent<ChatTrigger>();
-;
+ 
         //teapot = GameObject.Find("Teapot");//Find the object with this name in the world
         teapotScript = teapot.GetComponent<TeapotScript>();
         teapotChat = teapot.GetComponent<ChatTrigger>();

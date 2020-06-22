@@ -13,7 +13,7 @@ public class SliderManager : MonoBehaviour
 
     public void selectVolume()
     {
-        addedVolume = slider.value*10;
+        addedVolume = slider.value;
 
         //if (slider.value > 0.1f&& slider.value< 0.2f)
         //{
