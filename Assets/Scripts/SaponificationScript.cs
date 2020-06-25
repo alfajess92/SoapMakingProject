@@ -5,7 +5,7 @@ using UnityEngine;
 public class SaponificationScript : MonoBehaviour
 {
 
-    public AddVolume addVolumeCylinder, addOil;
+    public AddVolume addVolumeCylinder, addVolumeBeaker;
 
     public GameObject cylinder, beaker;
     public SliderManager sliderManager;
@@ -22,10 +22,12 @@ public class SaponificationScript : MonoBehaviour
     public float densityLye = 1.51f;
 
     //public float amountSoap;
-    public float amountOil = 200f;//TODO  change it to be interactable?
+    //public float amountOil = 200f;//TODO  change it to be interactable?
 
 
     float amountLyeUsed;
+    float amountOil;
+ 
     float amountLyeNeeded;
     //float lyeExcess;
     float amountSoap;
@@ -40,7 +42,7 @@ public class SaponificationScript : MonoBehaviour
 
         addVolumeCylinder= cylinder.GetComponent<AddVolume>();
 
-        addOil = beaker.GetComponent<AddVolume>();
+        addVolumeBeaker = beaker.GetComponent<AddVolume>();
 
 
         //addedVolume = GetComponent<SliderManager>();
@@ -61,16 +63,12 @@ public class SaponificationScript : MonoBehaviour
     }
  
 
-
-
-
-
    public  void PercentageSaponification()
         {
         //Evaluate the variables inside to be able to change according to slider which is updated every frame
         amountLyeUsed = addVolumeCylinder.addedVolume;
 
-        amountOil = addOil.addedVolume;
+        amountOil = addVolumeBeaker.addedVolume;
 
         amountLyeNeeded = sunflowerSV * amountOil;
 
@@ -81,6 +79,8 @@ public class SaponificationScript : MonoBehaviour
 
             {
                 print("you need more lye, only" + amountSoap + "%" + "has been created");
+
+
             }
 
             else if (amountLyeUsed==amountLyeNeeded)
