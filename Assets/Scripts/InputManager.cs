@@ -52,9 +52,6 @@ public class InputManager : MonoBehaviour
         //startingChat = GameObject.Find("StartingChat");
         //startingChatTrigger = startingChat.GetComponent<ChatTrigger>();
 
-    
-
-
     }
 
 
@@ -100,13 +97,11 @@ public class InputManager : MonoBehaviour
 
                 
             {
-  
                 print("touchladle");
                 ladleScript.MoveLadle();
                 ladleChat.TriggerChat();
                 //TODO only create soap after X amount of mixing
                 soapBarScript.CreateSoap();
-
 
             }
 
