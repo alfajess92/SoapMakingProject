@@ -120,34 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &37954349
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'TemporalMarker2Material
-
-    -118422'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b36f617c6f0b4135a6abe9933093eee4, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1001 &56023634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -836,157 +808,13 @@ Transform:
   m_Father: {fileID: 4819927665874748576}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -200.05899, z: 0}
---- !u!1 &667434757
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 667434759}
-  - component: {fileID: 667434758}
-  m_Layer: 0
-  m_Name: StartingChat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &667434758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667434757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89b5ae0ab34749819d94233ed92e5d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chat:
-    sentences:
-    - Welcome to the middle age!
-    - let's start by adding water to the ashes to create lye
---- !u!4 &667434759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667434757}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 663.32697, y: 205.25682, z: -157.36786}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &767795252 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8339935093981919707, guid: 24df369a32b3e4c71a0b2a841807d3a0,
-    type: 3}
-  m_PrefabInstance: {fileID: 820916851620135381}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &790166988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4819927665874748577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aacae68974083435ab35b223c6d629b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ladle: {fileID: 4819927665793853102}
-  teapot: {fileID: 499608849}
-  woodsaucer: {fileID: 499608846}
-  soapBar: {fileID: 499608843}
-  table: {fileID: 499608853}
-  mediumBoiler: {fileID: 113474217}
-  teapotScript: {fileID: 4819927665595842352}
-  ladleScript: {fileID: 4819927665618532565}
-  woodSaucerScript: {fileID: 1310518984}
-  soapBarScript: {fileID: 499608844}
-  mediumBoilerScript: {fileID: 113474223}
-  tableTransform: {fileID: 499608852}
-  panelManagerScript: {fileID: 2014782301}
-  chatManagerScript: {fileID: 1920325931}
-  teapotChat: {fileID: 516596479}
-  ladleChat: {fileID: 1286414717}
-  woodSaucerChat: {fileID: 992297968}
-  mediumBoilerChat: {fileID: 113474219}
-  OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &852787523 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 9485b0c79d11e2e4d0007da98d76c639,
-    type: 3}
-  m_PrefabInstance: {fileID: 1687402184}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &852787524
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852787523}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 77b69b3c167f64ec4bc02f1c9df2b79b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &992297968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499608846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89b5ae0ab34749819d94233ed92e5d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chat:
-    sentences:
-    - Great! Now let's add the lye to the oil.
---- !u!114 &995128606 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6885829930733687401, guid: c6d32bb4f937c4b1fa8d65b52debe22f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6885829930615293520}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebcbd629de74548a4b426cb9381ffd6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!43 &1049912908
+--- !u!43 &646878026
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh-1170
+  m_Name: ImageTargetMesh116268
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1143,6 +971,150 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &667434757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667434759}
+  - component: {fileID: 667434758}
+  m_Layer: 0
+  m_Name: StartingChat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &667434758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667434757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89b5ae0ab34749819d94233ed92e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chat:
+    sentences:
+    - Welcome to the middle age!
+    - let's start by adding water to the ashes to create lye
+--- !u!4 &667434759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667434757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 663.32697, y: 205.25682, z: -157.36786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &767795252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8339935093981919707, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 820916851620135381}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &790166988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819927665874748577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aacae68974083435ab35b223c6d629b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ladle: {fileID: 4819927665793853102}
+  teapot: {fileID: 499608849}
+  woodsaucer: {fileID: 499608846}
+  soapBar: {fileID: 499608843}
+  table: {fileID: 499608853}
+  mediumBoiler: {fileID: 113474217}
+  teapotScript: {fileID: 4819927665595842352}
+  ladleScript: {fileID: 4819927665618532565}
+  woodSaucerScript: {fileID: 1310518984}
+  soapBarScript: {fileID: 499608844}
+  mediumBoilerScript: {fileID: 113474223}
+  tableTransform: {fileID: 499608852}
+  panelManagerScript: {fileID: 2014782301}
+  chatManagerScript: {fileID: 1920325931}
+  teapotChat: {fileID: 516596479}
+  ladleChat: {fileID: 1286414717}
+  woodSaucerChat: {fileID: 992297968}
+  mediumBoilerChat: {fileID: 113474219}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &852787523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 9485b0c79d11e2e4d0007da98d76c639,
+    type: 3}
+  m_PrefabInstance: {fileID: 1687402184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &852787524
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852787523}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77b69b3c167f64ec4bc02f1c9df2b79b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &992297968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499608846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89b5ae0ab34749819d94233ed92e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chat:
+    sentences:
+    - Great! Now let's add the lye to the oil.
+--- !u!114 &995128606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6885829930733687401, guid: c6d32bb4f937c4b1fa8d65b52debe22f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6885829930615293520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcbd629de74548a4b426cb9381ffd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1087539301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2496,6 +2468,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!21 &1800725467
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'TemporalMarker2Material
+
+    116264'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b36f617c6f0b4135a6abe9933093eee4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &1904449840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,6 +2984,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ThreePointLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334378550432633117, guid: 7844312feadac4e019534b3580369531,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.897
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334378550432633117, guid: 7844312feadac4e019534b3580369531,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.749
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7844312feadac4e019534b3580369531, type: 3}
@@ -3993,7 +4003,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 37954349}
+  - {fileID: 1800725467}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4021,7 +4031,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819927665874748577}
-  m_Mesh: {fileID: 1049912908}
+  m_Mesh: {fileID: 646878026}
 --- !u!4 &4819927666029245094
 Transform:
   m_ObjectHideFlags: 0
@@ -4063,6 +4073,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9485b0c79d11e2e4d0007da98d76c639, type: 3}
       propertyPath: m_Name
       value: OilLayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9485b0c79d11e2e4d0007da98d76c639, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9485b0c79d11e2e4d0007da98d76c639, type: 3}
       propertyPath: m_LocalPosition.x

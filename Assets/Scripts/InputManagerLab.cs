@@ -63,8 +63,6 @@ public class InputManagerLab : MonoBehaviour
                 beakerChat.TriggerChat();
                 print("beaker is touched");
                 sliderOil.SetActive(true);
-
-
             }
 
             //Choosing the lye and oil
@@ -73,19 +71,25 @@ public class InputManagerLab : MonoBehaviour
                 cylinderChat.TriggerChat();
                 print("cylinder is touched");
                 sliderLye.SetActive(true);
-
             }
+
+
 
             //Glassrod and calcute soap
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == glassRod)
             {
                 glassRodChat.TriggerChat();
-                print("glassrod is touched");
+                //print("glassrod is touched");
+
+                //To desactivate the gameobject 
                 sliderLye.SetActive(false);
-                //Hinder the interaction with the slider
+                sliderOil.SetActive(false);
+
+
+                //Hinder the interaction with the slider script
                 sliderScriptLye.enabled = false;
                 sliderScriptOil.enabled = false;
-                sliderOil.SetActive(false);
+                
 
                 saponificationScript.CalculatingSoap();
                 glassRodScript.MoveGlassRod();

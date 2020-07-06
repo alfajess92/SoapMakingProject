@@ -42,7 +42,7 @@ public class GlassRod : MonoBehaviour
     public void MoveGlassRod()
     {
         animatorGlassRod.SetTrigger("Mix");//inside the animator controller
-        print(glassRodClipLength);
+        //print(glassRodClipLength);
         TouchGlassRod();
     }
 

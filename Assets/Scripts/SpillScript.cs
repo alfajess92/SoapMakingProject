@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class SpillScript : MonoBehaviour
 {
-    ParticleSystem waterStreamTeapot;
-    //TODO this script maybe can be generic
 
+    //This script controls the particle system attach to any container
 
+    ParticleSystem StreamContainer;
+ 
 
     void Start()
     {
-        waterStreamTeapot = GetComponent<ParticleSystem>();
-        StopWaterStreamTeapot();
+        StreamContainer = GetComponent<ParticleSystem>();
+        StopStreamContainer();
 
     }
 
-    public void PlayWaterStreamTeapot()
+    public void PlayStreamContainer()
     {
-        Debug.Log("vengase el agua");
-        waterStreamTeapot.Play();
-        Debug.Log("Ya eche el agua");
+        StreamContainer.Play();
+        
     }
 
-    public void StopWaterStreamTeapot()
+    public void StopStreamContainer()
     {
-        waterStreamTeapot.Stop();
+        StreamContainer.Stop();
     }
 
 

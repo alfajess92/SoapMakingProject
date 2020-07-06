@@ -93,14 +93,14 @@ public class TeapotScript : MonoBehaviour
 
     public void PlayWaterStream()//to add in the animator controller as a parameter
     {
-        spill.PlayWaterStreamTeapot();
+        spill.PlayStreamContainer();
     }
 
     //Methods called by the animator controller
 
     public void StopWaterStream()
     {
-        spill.StopWaterStreamTeapot();
+        spill.StopStreamContainer();
     }
 
     //Methods called by the animator controller

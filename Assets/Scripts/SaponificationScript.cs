@@ -9,6 +9,7 @@ public class SaponificationScript : MonoBehaviour
     public Text resultText;
 
     public GameObject resulttextObject;
+    public GameObject TAG, DAG, monolein, linoleic, oleic, glycerol, OH;
 
 
     public AddVolume addVolumeCylinder, addVolumeBeaker;
@@ -36,6 +37,8 @@ public class SaponificationScript : MonoBehaviour
     public float amountLyeNeeded;
     public float amountSoap;
 
+    private Vector3 TAGoriginalScale;
+    public float sizeMolecule = 10000;
 
     private void Start()
     {
@@ -60,6 +63,7 @@ public class SaponificationScript : MonoBehaviour
         //amountLyeNeeded = sunflowerSV * amountOil;
         //amountSoap = amountLyeUsed * 100 / amountLyeNeeded;
 
+        TAGoriginalScale = TAG.transform.localScale;
 
     }
  
@@ -99,9 +103,19 @@ public class SaponificationScript : MonoBehaviour
                 if (amountSoap <30)
 
                 {
-
                 //Show DAG + linoleic chain
-                    print("only one chain has fallen");
+                TAG.SetActive(true);
+                TAG.transform.localScale = new Vector3 (transform.localScale.x* sizeMolecule, transform.localScale.y * sizeMolecule, transform.localScale.z * sizeMolecule);
+                print("TAG is growing");
+                //DAG.SetActive(true);
+                //print("DAG is on");
+                //monolein.SetActive(false);
+                //linoleic.SetActive(false);
+                //oleic.SetActive(false);
+                //glycerol.SetActive(false);
+                //OH.SetActive(false);
+
+                print("only one chain has fallen");
 
                 }
 
