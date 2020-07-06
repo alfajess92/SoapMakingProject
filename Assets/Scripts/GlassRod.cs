@@ -9,13 +9,10 @@ public class GlassRod : MonoBehaviour
     /// This script is similar to LadleScript
    
     public GameObject parentGlassRod;
-
     Animator animatorGlassRod;
-    //ScoreBoard scoreBoard;
-
     public bool isTouchGlassRod = false;
     float glassRodClipLength;
-    //ChatTrigger chat;
+  
 
 
     // Start is called before the first frame update
@@ -24,9 +21,8 @@ public class GlassRod : MonoBehaviour
         parentGlassRod = GameObject.Find("Parent_GlassRod");//Find the object with this name in the world
 
         animatorGlassRod = parentGlassRod.GetComponent<Animator>();
-        //scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
-        //chat = GetComponent<ChatTrigger>();
 
+        //Fetch the current Animation clip information for the base layer
         AnimationClip[] clipsGlassRod = animatorGlassRod.runtimeAnimatorController.animationClips;
 
         foreach (AnimationClip clip in clipsGlassRod)
@@ -42,12 +38,17 @@ public class GlassRod : MonoBehaviour
     public void MoveGlassRod()
     {
         animatorGlassRod.SetTrigger("Mix");//inside the animator controller
-        //print(glassRodClipLength);
-        TouchGlassRod();
+        Invoke ("TouchGlassRod", glassRodClipLength);
+
     }
 
 
     public void TouchGlassRod()
+    {
+        isTouchGlassRod = true;
+    }
+
+    public void UnTouchGlassRod()
     {
         isTouchGlassRod = false;
     }

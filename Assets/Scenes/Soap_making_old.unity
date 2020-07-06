@@ -1873,7 +1873,7 @@ PrefabInstance:
     - target: {fileID: 4837777471068807419, guid: c20bd375b79e448b7a5a9d0f7e130abb,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4837777471068807419, guid: c20bd375b79e448b7a5a9d0f7e130abb,
         type: 3}
@@ -2299,6 +2299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moveWithTransform
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837777471068807419, guid: c20bd375b79e448b7a5a9d0f7e130abb,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c20bd375b79e448b7a5a9d0f7e130abb, type: 3}
@@ -3341,7 +3346,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a1c4cac55ca3a47938d76204ea25f892, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

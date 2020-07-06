@@ -11,12 +11,7 @@ public class SoapCreator : MonoBehaviour
     public GameObject soapBar;
     public GameObject soapOrigin;
     public Component[] componentRigidBodyChildren;
-    //Vector3 offset = new Vector3(0f, 1f, 0f);
-
-    // Update is called once per frame
-
-
-        //if ladle script is touch
+ 
         
    public void CreateSoap()
 
@@ -39,8 +34,6 @@ public class SoapCreator : MonoBehaviour
         //TurnOffGravity();
         //num_soap++;
     }
-
-
 
     public  void DestroySoap()
     {

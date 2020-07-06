@@ -23,6 +23,8 @@ public class InputManagerLab : MonoBehaviour
     public ChatTrigger beakerChat, cylinderChat, balanceChat, glassRodChat;
     public UnityEvent OnClick = new UnityEvent();
 
+    public CylinderScript cylinderScript;
+
 
     //// Start is called before the first frame update
     void Start()
@@ -41,6 +43,12 @@ public class InputManagerLab : MonoBehaviour
         glassRodChat = glassRod.GetComponent<ChatTrigger>();
         saponificationScript = glassRod.GetComponent<SaponificationScript>();
         glassRodScript = glassRod.GetComponent<GlassRod>();
+
+
+
+        //cylinder
+        cylinderScript = cylinder.GetComponent < CylinderScript>();
+        cylinderChat = cylinder.GetComponent<ChatTrigger>();
     }
 
 
@@ -51,60 +59,58 @@ public class InputManagerLab : MonoBehaviour
         RaycastHit Hit;
 
         //To fix the gravity of the world with the image target
-        gravityVector = tableTransform.localToWorldMatrix * (new Vector3(0f, -1f, 0f));
+        gravityVector = tableTransform.localToWorldMatrix * (new Vector3(0f, 1f, 0f));
         Physics.gravity = gravityVector.normalized * 9.81f;
 
         if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
         {
 
             //Touching the beaker
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == beaker)
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == beaker && !cylinderScript.isTouchCylinder&& !glassRodScript.isTouchGlassRod)
             {
                 beakerChat.TriggerChat();
-                print("beaker is touched");
                 sliderOil.SetActive(true);
-            }
-
-            //Choosing the lye and oil
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == cylinder)
-            {
-                cylinderChat.TriggerChat();
-                print("cylinder is touched");
                 sliderLye.SetActive(true);
             }
 
-
-
-            //Glassrod and calcute soap
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == glassRod)
+            //Choosing the lye and oil
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == cylinder&& !glassRodScript.isTouchGlassRod)
             {
-                glassRodChat.TriggerChat();
-                //print("glassrod is touched");
+                cylinderChat.TriggerChat();
 
                 //To desactivate the gameobject 
                 sliderLye.SetActive(false);
                 sliderOil.SetActive(false);
 
-
                 //Hinder the interaction with the slider script
                 sliderScriptLye.enabled = false;
                 sliderScriptOil.enabled = false;
-                
 
-                saponificationScript.CalculatingSoap();
-                glassRodScript.MoveGlassRod();
-               
-
+                cylinderScript.ServeLye();
             }
 
+            //Glassrod and calcute soap
+            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == glassRod && cylinderScript.isTouchCylinder)
+            {
+                glassRodChat.TriggerChat();
+                saponificationScript.CalculatingSoap();
 
-
+                glassRodScript.MoveGlassRod();
+                //TODO add a condition to reset?
+                
+                //Reseting parameters
+                Invoke("ResetTouch", 0.1f);
+            }
 
         }
 
     }
 
+    public void ResetTouch()
 
-
-
+    {
+        glassRodScript.UnTouchGlassRod();
+        cylinderScript.UnTouchCylinder();
+        print("reset touch");
+    }
 }

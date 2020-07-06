@@ -11,7 +11,7 @@ public class AddVolume : MonoBehaviour
     Transform liquidMeshTransform;
 
     //Vector3 changeVolume = new Vector3(0, 1f, 0);
-    Vector3 currentVolume;
+    Vector3 originalScale;
 
     public Slider MySlider;
 
@@ -22,33 +22,11 @@ public class AddVolume : MonoBehaviour
     {
 
         liquidMeshTransform= container.transform.Find("Liquid");
-        //if (liquidMesh != null)
-        //{
-        //    Debug.Log("A child with the name 'liquid' attached to the player");
-        //}
 
-        //currentVolume = liquidMesh.transform.localScale;
-        //liquidMeshTransform.localScale;
-        //print(currentVolume);
-        //changeVolume = new Vector3(1f, volumeincrease, 1f);
-
+        originalScale = liquidMeshTransform.localScale;
+        print("originalScale");
     }
 
-    
-
-        ////liquidMesh = GameObject.Find("Liquid");
-        
-
-        //liquidMeshTransform = GetComponentInChildren<Transform>();
-        //currentVolume = liquidMeshTransform.localScale;
-
- 
-
-////Update is called once per frame
-//void Update()
-//{
-//    AdjustVolume();
-//}
 
 public void AdjustVolume()
 {
@@ -70,8 +48,43 @@ public void AdjustVolume()
 
 
 
-    public void ReadVolume()
+public void ReadVolume()
     {
         addedVolume = MySlider.value*100*factorVolume;//to multiply the factor of the slider for "real" volume
     }
+
+public void DeleteVolume()
+    {
+        print("let's empty the container");
+        liquidMeshTransform.localScale = originalScale;
+
+    }
+
 }
+
+
+
+
+//if (liquidMesh != null)
+//{
+//    Debug.Log("A child with the name 'liquid' attached to the player");
+//}
+
+//currentVolume = liquidMesh.transform.localScale;
+//liquidMeshTransform.localScale;
+//print(currentVolume);
+//changeVolume = new Vector3(1f, volumeincrease, 1f);
+
+////liquidMesh = GameObject.Find("Liquid");
+
+
+//liquidMeshTransform = GetComponentInChildren<Transform>();
+//currentVolume = liquidMeshTransform.localScale;
+
+
+
+////Update is called once per frame
+//void Update()
+//{
+//    AdjustVolume();
+//}

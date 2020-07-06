@@ -19,14 +19,14 @@ public class ChatManager : MonoBehaviour
 
     public void StartChat(Chat chat)
     {
-        Debug.Log("Starting Chat");
+        //Debug.Log("Starting Chat");
         animator.SetBool("isOpen", true);
         sentences.Clear();
         foreach (string sentence in chat.sentences)// loop into the chat to load all sentences
         {
             sentences.Enqueue(sentence);//adds to end of queue
         }
-        print("next sentences is coming");
+        //print("next sentences is coming");
         //DisplayNextSentence();
 
         StopAllCoroutines();
