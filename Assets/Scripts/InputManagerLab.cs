@@ -99,8 +99,9 @@ public class InputManagerLab : MonoBehaviour
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == glassRod && cylinderScript.isTouchCylinder)
             {
                 glassRodChat.TriggerChat();
-     
                 glassRodScript.MoveGlassRod();
+
+                //Calculate soap after the glassrod finish the animation
                 Invoke("CalculatingSoap", glassRodScript.glassRodClipLength);
 
            

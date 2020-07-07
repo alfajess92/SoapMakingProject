@@ -15,7 +15,7 @@ public class TeapotScript : MonoBehaviour
     void Start()
 
     {
-        waterAsh = GameObject.Find("WaterLayer");
+        //waterAsh = GameObject.Find("WaterLayer");
 
         //getting the animator attached to the water in the ash
         animatorWaterAsh = waterAsh.GetComponent<Animator>();
@@ -39,7 +39,7 @@ public class TeapotScript : MonoBehaviour
     public void ServeWaterTeapot()
     {
         animatorTeapot.SetTrigger("Serve");//inside the animator controller
-        animatorWaterAsh.SetTrigger("Fill");
+        //animatorWaterAsh.SetTrigger("Fill");
 
         //Called the bool condition only when the animation is finished
         print(teapotClipLength);
@@ -62,6 +62,14 @@ public class TeapotScript : MonoBehaviour
     public void PlayWaterStream()//to add in the animator controller as a parameter
     {
         spill.PlayStreamContainer();
+    }
+
+
+    public void FillContainer()
+    {
+        animatorWaterAsh.SetTrigger("Fill");
+        
+
     }
 
     public void StopWaterStream()

@@ -72,13 +72,18 @@ public class WoodSaucer : MonoBehaviour
 
 
 
+    public void FillContainer()
+    {
+        animatorWaterAsh.SetTrigger("Fill");
+
+    }
 
 
     //Methods called by the animator controller
 
-    public void EmptyWoodSaucer()
+    public void EmptyContainer()
     {
-        animatorWaterAsh.SetTrigger("EmptyWoodSaucer");
+        animatorWaterAsh.SetTrigger("Empty");
     }
 
     //Methods called by the animator controller
