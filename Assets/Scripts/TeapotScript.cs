@@ -6,22 +6,12 @@ using UnityEngine;
 public class TeapotScript : MonoBehaviour
 {
     [SerializeField] SpillScript spill;
-
     public GameObject  waterAsh;
-   
-
     Animator animatorTeapot, animatorWaterAsh;
     AudioSource audioSource;
     public bool isTouchTeapot = false;
-
-    //string clipName;
-    //AnimatorStateInfo animationState;
-    //AnimatorClipInfo[] animatorClipInfo;
-    float teapotClipLength, waterAshClipLength;
+    float teapotClipLength;
  
-
-
-    //// Start is called before the first frame update
     void Start()
 
     {
@@ -34,9 +24,7 @@ public class TeapotScript : MonoBehaviour
         //getting the animator of attached to the teapot
         animatorTeapot = gameObject.GetComponent<Animator>();
 
-
         //Fetch the current Animation clip information for the base layer
-        //AnimatorClipInfo[] animatorClipInfo= this.animator.GetCurrentAnimatorClipInfo(0);
         AnimationClip[] clipsTeapot = animatorTeapot.runtimeAnimatorController.animationClips;
 
         foreach (AnimationClip clip in clipsTeapot)
@@ -45,49 +33,29 @@ public class TeapotScript : MonoBehaviour
             teapotClipLength = clip.length;
         }
 
-        //AnimationClip[] clipsWaterAsh= animatorWaterAsh.runtimeAnimatorController.animationClips;
-
-        //foreach (AnimationClip clip in clipsTeapot)
-
-        //{
-        //    waterAshClipLength = clip.length;
-        //}
-
-        //Access the current length of the clip and name
-        ////currentClipLength = animatorClipInfo[0].clip.length;
-        //clipName = animatorClipInfo[0].clip.name;
-
-        //animationState = animator.GetCurrentAnimatorStateInfo(0);
 
     }
-
 
     public void ServeWaterTeapot()
     {
         animatorTeapot.SetTrigger("Serve");//inside the animator controller
         animatorWaterAsh.SetTrigger("Fill");
-        //isTouchTeapot = true;
 
-        //Called the bool condition only when the animatin is finished
+        //Called the bool condition only when the animation is finished
         print(teapotClipLength);
         Invoke("TouchTeapot", teapotClipLength);//
     }
-
 
     public void TouchTeapot()
     {
         isTouchTeapot = true;
     }
 
-
     //Called from InputManager to restart the interactions
     public void UntouchTeapot()
     {
         isTouchTeapot = false;
     }
-
-
-
 
     //Methods called by the animator controller
 
@@ -96,14 +64,10 @@ public class TeapotScript : MonoBehaviour
         spill.PlayStreamContainer();
     }
 
-    //Methods called by the animator controller
-
     public void StopWaterStream()
     {
         spill.StopStreamContainer();
     }
-
-    //Methods called by the animator controller
 
     public void PlaySoundTeapotStream()//TODO check if this has to be here
 

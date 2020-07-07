@@ -71,6 +71,7 @@ public class InputManager : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
         {
+            //Touch the medium boiler
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == mediumBoiler && !mediumBoilerScript.isTouchMediumBoiler && !teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 mediumBoilerChat.TriggerChat();
@@ -78,6 +79,7 @@ public class InputManager : MonoBehaviour
                
             }
 
+            //Touch teapot
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == teapot && mediumBoilerScript.isTouchMediumBoiler && !teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 teapotChat.TriggerChat();
@@ -85,7 +87,7 @@ public class InputManager : MonoBehaviour
                 //soapBarScript.CreateSoap();
             }
 
-
+            //Touch woodsaucer
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == woodsaucer && mediumBoilerScript.isTouchMediumBoiler && teapotScript.isTouchTeapot && !woodSaucerScript.isTouchWoodsaucer && !ladleScript.isTouchLadle)
             {
                 woodSaucerChat.TriggerChat();
@@ -93,19 +95,17 @@ public class InputManager : MonoBehaviour
 
             }
 
+            //Touch ladle
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == ladle && mediumBoilerScript.isTouchMediumBoiler && teapotScript.isTouchTeapot && woodSaucerScript.isTouchWoodsaucer)
-
                 
             {
-                print("touchladle");
-                ladleScript.MoveLadle();
-                ladleChat.TriggerChat();
-
-                //TODO only create soap after X amount of mixing
-                soapBarScript.CreateSoap();
+              print("touchladle");
+              ladleScript.MoveLadle();
+              ladleChat.TriggerChat();
+             //TODO only create soap after X amount of mixing
+              soapBarScript.CreateSoap();
 
             }
-
 
 
         }

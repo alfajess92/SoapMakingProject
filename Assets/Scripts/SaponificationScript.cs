@@ -11,11 +11,14 @@ public class SaponificationScript : MonoBehaviour
     public GameObject resulttextObject;
     public GameObject TAG, DAG, monolein, linoleic, oleic, glycerol, OH, linoleic2;
 
+    public SoapCreator soapBarScript;
+   
+
 
     public AddVolume addVolumeCylinder, addVolumeBeaker;
 
     public GameObject cylinder, beaker;
-    public SliderManager sliderManager;
+    public SliderManager sliderManagerLye, sliderManagerOil;
 
     float addedVolume;
 
@@ -34,7 +37,7 @@ public class SaponificationScript : MonoBehaviour
     public float amountSoap;
 
     private Vector3 tagOriginalScale, dagOriginalScale, monoleinOriginalScale, linoleicOriginalScale, oleicOriginalScale, glycerolOriginalScale, ohOriginalScale, linoleic2OriginalScale;
-    float sizeMolecule = 0.05f;
+    float sizeMolecule = 0.03f;
 
     private void Start()
     {
@@ -86,14 +89,11 @@ public class SaponificationScript : MonoBehaviour
         print("analyze soap" + amountSoap);
 
         //Stoichoimetry cases
-        if (amountLyeNeeded > amountLyeUsed)
 
+        //No Soap
+        if (amountSoap == 0)
         {
-            resultText.text = "you converted" + "  " + amountSoap + " " +"% of the oil" + "," + "  "+ "add more lye!";
-            //resultTextMesh.text = "you need more lye, only" + amountSoap + "%" + "has been created" + "," + "add more!";
-            //No soap
-            if (amountSoap == 0)
-            {
+            
                 //To activate/desactivate the gameobject 
                 TAG.SetActive(true);
                 //TAG.transform.localScale = new Vector3(transform.localScale.x + sizeMolecule, transform.localScale.y + sizeMolecule, transform.localScale.z + sizeMolecule);
@@ -109,7 +109,17 @@ public class SaponificationScript : MonoBehaviour
                 oleic.SetActive(false);
                 glycerol.SetActive(false);
                 OH.SetActive(false);
-            }
+            
+        }
+
+        if (amountLyeNeeded > amountLyeUsed)
+
+        {
+            //Create SoapBottle
+            soapBarScript.CreateSoap();
+            resultText.text = "you converted" + "  " + amountSoap + " " +"% of the oil" + "," + "  "+ "add more lye!";
+            //resultTextMesh.text = "you need more lye, only" + amountSoap + "%" + "has been created" + "," + "add more!";
+
 
             //Less than 30% soap
             if (amountSoap >0&& amountSoap<30)
@@ -167,6 +177,8 @@ public class SaponificationScript : MonoBehaviour
         if (amountLyeUsed == amountLyeNeeded && amountLyeUsed!=0)
 
         {
+            //Create SoapBottle
+            soapBarScript.CreateSoap();
 
             resultText.text = "your soap looks great!";
             //Show the molecules separated 2 linoleic, 1 oleic, glycerol
@@ -185,8 +197,10 @@ public class SaponificationScript : MonoBehaviour
             oleic.SetActive(true);
             oleic.transform.localScale = Vector3.one * sizeMolecule;
 
+            
+
             glycerol.SetActive(true);
-            glycerol.transform.localScale = Vector3.one * sizeMolecule;
+            glycerol.transform.localScale = Vector3.one * sizeMolecule*0.5f;
 
             OH.SetActive(true);
             OH.transform.localScale = Vector3.one * sizeMolecule;
@@ -198,6 +212,9 @@ public class SaponificationScript : MonoBehaviour
         if (amountLyeNeeded < amountLyeUsed)
 
         {
+            //Create SoapBottle
+            soapBarScript.CreateSoap();
+
             resultText.text = "your soap is ok, but be careful it can be corrosive";
             //Show the molecules separated
             //Show the molecules separated 2 linoleic, 1 oleic, glycerol and a lot of OH
@@ -226,9 +243,22 @@ public class SaponificationScript : MonoBehaviour
 
         }
 
+
+        //Reset the values from slider to try again this reset the transform of the glass
+        Invoke("CleanSlider", 0.5f);
     }
 
+
+    void CleanSlider()
+    {
+        sliderManagerLye.ResetValue();
+        sliderManagerOil.ResetValue();
+        print("The value of the slider is again 0");
+    }
+
+
 }
+
 
 
 //addedVolume = GetComponent<SliderManager>();

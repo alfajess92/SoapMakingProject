@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class SliderManager : MonoBehaviour
 {
-   public Slider slider;
+    public Slider slider;
 
    float addedVolume;
+
+
+
 
 
 
@@ -15,10 +18,15 @@ public class SliderManager : MonoBehaviour
     {
         addedVolume = slider.value;
 
-        //if (slider.value > 0.1f&& slider.value< 0.2f)
-        //{
-        //    print(addedVolume);
-        //}
     }
+
+
+
+
+    public void ResetValue()
+    {
+        slider.value = 0;
+    }
+
 
 }

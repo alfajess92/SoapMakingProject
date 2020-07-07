@@ -14,6 +14,11 @@ public class InputManagerLab : MonoBehaviour
 
     public SaponificationScript saponificationScript;
     public GlassRod glassRodScript;
+    //public SoapCreator soapBarScript;
+    public ShowVolumeScript showVolumeScriptLye, ShowVolumeScriptBalance;
+    
+
+
     public Transform tableTransform;
     //public PanelManagerScript panelManagerScript;
     //public ChatManager chatManagerScript;
@@ -71,6 +76,7 @@ public class InputManagerLab : MonoBehaviour
                 beakerChat.TriggerChat();
                 sliderOil.SetActive(true);
                 sliderLye.SetActive(true);
+
             }
 
             //Choosing the lye and oil
@@ -82,9 +88,9 @@ public class InputManagerLab : MonoBehaviour
                 sliderLye.SetActive(false);
                 sliderOil.SetActive(false);
 
-                //Hinder the interaction with the slider script
-                sliderScriptLye.enabled = false;
-                sliderScriptOil.enabled = false;
+                ////Hinder the interaction with the slider script
+                //sliderScriptLye.enabled = false;
+                //sliderScriptOil.enabled = false;
 
                 cylinderScript.ServeLye();
             }
@@ -93,24 +99,42 @@ public class InputManagerLab : MonoBehaviour
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == glassRod && cylinderScript.isTouchCylinder)
             {
                 glassRodChat.TriggerChat();
-                saponificationScript.CalculatingSoap();
-
+     
                 glassRodScript.MoveGlassRod();
-                //TODO add a condition to reset?
-                
-                //Reseting parameters
-                Invoke("ResetTouch", 0.1f);
+                Invoke("CalculatingSoap", glassRodScript.glassRodClipLength);
+
+           
+                //Create a bottle of soap
+                //Reset the values from slider
+          
             }
+
+           // TODO HideMolecules
+
+            //Reseting parameters
+            Invoke("ResetTouchLab", 1.0f);
 
         }
 
     }
 
-    public void ResetTouch()
+    public void ResetTouchLab()
 
     {
         glassRodScript.UnTouchGlassRod();
         cylinderScript.UnTouchCylinder();
         print("reset touch");
+        showVolumeScriptLye.DeleteText();
+        print("text deleted");
+        ShowVolumeScriptBalance.DeleteText();
+
+    }
+
+
+    public void CalculatingSoap()
+    {
+   
+        saponificationScript.CalculatingSoap();
+        //soapBarScript.CreateSoap();
     }
 }

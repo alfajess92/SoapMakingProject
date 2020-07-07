@@ -53,6 +53,7 @@ public void ReadVolume()
         addedVolume = MySlider.value*100*factorVolume;//to multiply the factor of the slider for "real" volume
     }
 
+
 public void DeleteVolume()
     {
         print("let's empty the container");

@@ -30,5 +30,12 @@ public class ShowVolumeScript : MonoBehaviour
       
     }
 
+    public void DeleteText()
+    {
+        volumeText.text=volume.ToString("F1");
+
+    }
+
+
 
 }

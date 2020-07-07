@@ -11,7 +11,7 @@ public class GlassRod : MonoBehaviour
     public GameObject parentGlassRod;
     Animator animatorGlassRod;
     public bool isTouchGlassRod = false;
-    float glassRodClipLength;
+    public float glassRodClipLength;
   
 
 
