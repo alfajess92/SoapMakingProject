@@ -39,6 +39,7 @@ public class GlassRod : MonoBehaviour
     {
         animatorGlassRod.SetTrigger("Mix");//inside the animator controller
         Invoke ("TouchGlassRod", glassRodClipLength);
+        //parameter to reset the animation state of glassrod 
 
     }
 
@@ -46,6 +47,8 @@ public class GlassRod : MonoBehaviour
     public void TouchGlassRod()
     {
         isTouchGlassRod = true;
+        animatorGlassRod.SetBool("isTouchGlassRod", true);
+
     }
 
     public void UnTouchGlassRod()

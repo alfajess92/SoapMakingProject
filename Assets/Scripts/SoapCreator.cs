@@ -11,28 +11,13 @@ public class SoapCreator : MonoBehaviour
     public GameObject soapBar;
     public GameObject soapOrigin;
     public Component[] componentRigidBodyChildren;
- 
-        
-   public void CreateSoap()
 
+
+    //Create the gameobject on realtime    
+    public void CreateSoap()
     {
-        //soapPos = GetComponentInParent<Transform>();
-        //soapPos.position += offset * num_soap;
-        //Instantiate(soapBar, soapPos.position, soapPos.rotation, soapPos);
         GameObject newSoap;
-        //Rigidbody newRigidSoap;
         newSoap = Instantiate(soapBar, soapPos.position, soapPos.rotation, soapOrigin.transform);
-
-        //newRigidSoap = Instantiate(rigidSoap, soapPos) as Rigidbody;
-
-        //newRigidSoap = newSoap.GetComponent<Rigidbody>();
-        ////newRigidSoap.velocity = offset;
-        //newRigidSoap.AddForce(offset * 1f);
-        //Instantiate(soapBar, soapPos.position + offset*num_soap, soapPos.rotation);
-        //newSoap.SetActive(true);
-
-        //TurnOffGravity();
-        //num_soap++;
     }
 
     public  void DestroySoap()
@@ -42,7 +27,6 @@ public class SoapCreator : MonoBehaviour
 
     public void TurnOnGravity()
     {
-        
         componentRigidBodyChildren = soapOrigin.GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rigidBody in componentRigidBodyChildren)
         {
@@ -53,7 +37,6 @@ public class SoapCreator : MonoBehaviour
 
     public void TurnOffGravity()
     {
-
         componentRigidBodyChildren = soapOrigin.GetComponentsInChildren<Rigidbody>();
         foreach (Rigidbody rigidBody in componentRigidBodyChildren)
         {
@@ -63,3 +46,26 @@ public class SoapCreator : MonoBehaviour
     }
 
 }
+
+
+//Test this...
+ 
+        //soapPos = GetComponentInParent<Transform>();
+        //soapPos.position += offset * num_soap;
+        //Instantiate(soapBar, soapPos.position, soapPos.rotation, soapPos);
+        //
+//        GameObject newSoap;
+////Rigidbody newRigidSoap;
+//newSoap = Instantiate(soapBar, soapPos.position, soapPos.rotation, soapOrigin.transform);
+
+//        //newRigidSoap = Instantiate(rigidSoap, soapPos) as Rigidbody;
+
+        //newRigidSoap = newSoap.GetComponent<Rigidbody>();
+        ////newRigidSoap.velocity = offset;
+        //newRigidSoap.AddForce(offset * 1f);
+        //Instantiate(soapBar, soapPos.position + offset*num_soap, soapPos.rotation);
+        //newSoap.SetActive(true);
+
+        //TurnOffGravity();
+        //num_soap++;
+    

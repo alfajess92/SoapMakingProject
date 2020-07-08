@@ -14,6 +14,4 @@ public class Chat // not monobehaviour because it will not sit on a script
     public string[] sentences;
 
 
-
-
 }

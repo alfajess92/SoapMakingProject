@@ -10,15 +10,11 @@ public class SaponificationScript : MonoBehaviour
 
     public GameObject resulttextObject;
     public GameObject TAG, DAG, monolein, linoleic, oleic, glycerol, OH, linoleic2;
-
     public SoapCreator soapBarScript;
-   
-
-
     public AddVolume addVolumeCylinder, addVolumeBeaker;
-
     public GameObject cylinder, beaker;
     public SliderManager sliderManagerLye, sliderManagerOil;
+    public ChatTrigger tagChat, dagChat, monoleinChat, oleicChat, glycerolChat, ohChat, linoleic2Chat;
 
     float addedVolume;
 
@@ -58,6 +54,12 @@ public class SaponificationScript : MonoBehaviour
         glycerolOriginalScale=glycerol.transform.localScale;
         ohOriginalScale=OH.transform.localScale;
 
+        //Chat from each molecule
+        //TODO add chat trigger to each gameobject
+        tagChat = TAG.GetComponent<ChatTrigger>();
+
+
+
     }
  
 
@@ -93,22 +95,18 @@ public class SaponificationScript : MonoBehaviour
         //No Soap
         if (amountSoap == 0)
         {
-            
-                //To activate/desactivate the gameobject 
-                TAG.SetActive(true);
-                //TAG.transform.localScale = new Vector3(transform.localScale.x + sizeMolecule, transform.localScale.y + sizeMolecule, transform.localScale.z + sizeMolecule);
-                TAG.transform.localScale = Vector3.one * sizeMolecule;//To scale all the components equally
-                print("TAG is growing");
-                DAG.SetActive(false);
-
-                monolein.SetActive(false);
-
-                linoleic.SetActive(false);
-                linoleic2.SetActive(false);
-
-                oleic.SetActive(false);
-                glycerol.SetActive(false);
-                OH.SetActive(false);
+            //To activate/desactivate the gameobject
+            resultText.text = "This is the main triacylglyceride of sunflower oil";
+            tagChat.TriggerChat();
+            TAG.SetActive(true);
+            TAG.transform.localScale = Vector3.one * sizeMolecule;//To scale all the components equally   
+            DAG.SetActive(false);
+            monolein.SetActive(false);
+            linoleic.SetActive(false);
+            linoleic2.SetActive(false);//TODO find a better way to duplicate the same molecule
+            oleic.SetActive(false);
+            glycerol.SetActive(false);
+            OH.SetActive(false);
             
         }
 
@@ -117,14 +115,13 @@ public class SaponificationScript : MonoBehaviour
         {
             //Create SoapBottle
             soapBarScript.CreateSoap();
-            resultText.text = "you converted" + "  " + amountSoap + " " +"% of the oil" + "," + "  "+ "add more lye!";
-            //resultTextMesh.text = "you need more lye, only" + amountSoap + "%" + "has been created" + "," + "add more!";
-
+            resultText.text = "you converted" + "  " + amountSoap.ToString("F1") + " " + "% of the oil" + "\r\n" + "  " + "look at the molecules present in your soap!";
 
             //Less than 30% soap
             if (amountSoap >0&& amountSoap<30)
 
                 {
+
                 //Show DAG + linoleic chain
                 TAG.SetActive(false);
 
@@ -147,7 +144,7 @@ public class SaponificationScript : MonoBehaviour
                 }
 
             //Between 30 and 70% soap
-            if(amountSoap>30 && amountSoap < 70)
+            if(amountSoap>30 && amountSoap < 90)
 
                 {
 
@@ -245,18 +242,53 @@ public class SaponificationScript : MonoBehaviour
 
 
         //Reset the values from slider to try again this reset the transform of the glass
-        Invoke("CleanSlider", 0.5f);
+
+        Invoke("CleanSlider", 2.0f);
+        
+        Invoke("ResetMolecules", 10.0f);
+    
+        Invoke("CleanResult", 10.0f);
+        
     }
 
 
-    void CleanSlider()
+    public void CleanSlider()
     {
         sliderManagerLye.ResetValue();
         sliderManagerOil.ResetValue();
-        print("The value of the slider is again 0");
+        print("cleaning slider");        
+
     }
 
+    //Reset the scale of the molecules
+    public void ResetMolecules()
+    {
+       TAG.transform.localScale = tagOriginalScale;
+       DAG.transform.localScale = dagOriginalScale =
+       monolein.transform.localScale = monoleinOriginalScale;
+       linoleic.transform.localScale = linoleicOriginalScale;
+       linoleic2.transform.localScale = linoleic2OriginalScale;
+       oleic.transform.localScale = oleicOriginalScale;
+       glycerol.transform.localScale = glycerolOriginalScale;
+       OH.transform.localScale = ohOriginalScale;
+       TAG.SetActive(false);
+       DAG.SetActive(false);
+       monolein.SetActive(false);
+       linoleic.SetActive(false);
+       linoleic2.SetActive(false);
+       oleic.SetActive(false);
+       glycerol.SetActive(false);
+       OH.SetActive(false);
+       print("cleaning molecules");
 
+    }
+
+    //Clean text result
+    public void CleanResult()
+    {
+        resultText.text = "   ";
+        print("cleaning result");
+    }
 }
 
 

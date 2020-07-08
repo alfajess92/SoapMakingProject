@@ -38,12 +38,10 @@ public class CylinderScript : MonoBehaviour
 
     public void ServeLye()
     {
-   
         animatorCylinder.SetTrigger("Serve");//inside the animator controller
 
-        //Called the bool condition only when the animatin is finished
+        //Called the bool condition only when the animation is finished
         Invoke("TouchCylinder", cylinderClipLength);//
-
         //TODO add a lye layer inside beaker
     
     }

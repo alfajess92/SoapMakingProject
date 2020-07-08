@@ -30,6 +30,7 @@ public class InputManagerLab : MonoBehaviour
 
     public CylinderScript cylinderScript;
 
+    int counter = 0;
 
     //// Start is called before the first frame update
     void Start()
@@ -67,16 +68,15 @@ public class InputManagerLab : MonoBehaviour
         gravityVector = tableTransform.localToWorldMatrix * (new Vector3(0f, 1f, 0f));
         Physics.gravity = gravityVector.normalized * 9.81f;
 
+        //if (Input.touchCount>0 && Input.touches[0].phase==TouchPhase.Began)
         if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
         {
-
             //Touching the beaker
             if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == beaker && !cylinderScript.isTouchCylinder&& !glassRodScript.isTouchGlassRod)
             {
                 beakerChat.TriggerChat();
                 sliderOil.SetActive(true);
                 sliderLye.SetActive(true);
-
             }
 
             //Choosing the lye and oil
@@ -88,11 +88,12 @@ public class InputManagerLab : MonoBehaviour
                 sliderLye.SetActive(false);
                 sliderOil.SetActive(false);
 
+                cylinderScript.ServeLye();//trigger the animation from script
+
                 ////Hinder the interaction with the slider script
                 //sliderScriptLye.enabled = false;
                 //sliderScriptOil.enabled = false;
 
-                cylinderScript.ServeLye();
             }
 
             //Glassrod and calcute soap
@@ -100,20 +101,18 @@ public class InputManagerLab : MonoBehaviour
             {
                 glassRodChat.TriggerChat();
                 glassRodScript.MoveGlassRod();
-
                 //Calculate soap after the glassrod finish the animation
                 Invoke("CalculatingSoap", glassRodScript.glassRodClipLength);
 
-           
-                //Create a bottle of soap
-                //Reset the values from slider
-          
             }
 
-           // TODO HideMolecules
+            // TODO HideMolecules
 
             //Reseting parameters
+            //Create a bottle of soap
+            //Reset the values from slider
             Invoke("ResetTouchLab", 1.0f);
+            counter++;
 
         }
 

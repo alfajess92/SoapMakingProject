@@ -9,24 +9,15 @@ public class SliderManager : MonoBehaviour
 
    float addedVolume;
 
-
-
-
-
-
     public void selectVolume()
     {
         addedVolume = slider.value;
 
     }
 
-
-
-
     public void ResetValue()
     {
         slider.value = 0;
     }
-
 
 }

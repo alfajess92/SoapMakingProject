@@ -9,8 +9,7 @@ using UnityEngine.SceneManagement;
 public class InputManager : MonoBehaviour
 {
 
-    public GameObject ladle, teapot, woodsaucer, soapBar, table, mediumBoiler;
-        
+    public GameObject ladle, teapot, woodsaucer, soapBar, table, mediumBoiler;    
     public TeapotScript teapotScript;
     public LadleScript ladleScript;
     public WoodSaucer woodSaucerScript;
@@ -58,12 +57,9 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("ya encontre la cuchara");
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit Hit;
-        //startingChatTrigger.TriggerChat();
-
-
+       
         gravityVector = tableTransform.localToWorldMatrix * (new Vector3(0f, -1f, 0f));
         //tablePosition = new Vector3(tableTransform.localPosition.x, tableTransform.localPosition.y, tableTransform.localPosition.z);
 
