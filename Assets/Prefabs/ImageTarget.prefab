@@ -647,7 +647,6 @@ MonoBehaviour:
   chat:
     sentences:
     - Great! Now let's add the lye to the oil.
-  animator: {fileID: 0}
 --- !u!114 &1406895041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,7 +711,6 @@ MonoBehaviour:
     - "This is getting really hot! \n"
     - 'Saponification is happening! '
     - Keep mixing to make more soap.
-  animator: {fileID: 0}
 --- !u!114 &4819927666109076956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -888,7 +886,6 @@ MonoBehaviour:
     sentences:
     - Lye was normally obtained from wood ashes
     - Be careful! This can be corrosive
-  animator: {fileID: 0}
 --- !u!114 &4819927665130443321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,7 +1532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 24aee756f38df9846a7b2cb95da74a40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.26
+      value: 2.94
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 24aee756f38df9846a7b2cb95da74a40, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1543,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 24aee756f38df9846a7b2cb95da74a40, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.119
+      value: -1.284
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 24aee756f38df9846a7b2cb95da74a40, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1779,6 +1776,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 3956652049303286177, guid: 8acb009cf12b64a4ca5c8026d0ab2e00,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3956652049303286178, guid: 8acb009cf12b64a4ca5c8026d0ab2e00,
         type: 3}
