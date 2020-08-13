@@ -6,4 +6,5 @@ The provided project demonstrates a practice on the integration of engineering s
 
 Developers:
 Jessica Dominguez Alfaro, Serkan Solmaz and Pedro Santos
+
 Department of Chemical Engineering, KU Leuven, Celestijnenlaan 200F, B-3001 Leuven, Belgium
