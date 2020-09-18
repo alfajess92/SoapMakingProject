@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Soap_making_lab.unity
     guid: 0105a97546fa1481b9bb08d5671ae344
+  - enabled: 1
+    path: Assets/Scenes/CFD_scene_final_demo.unity
+    guid: ce52ca0d42d59bb4681d9530c7ec57f4
   m_configObjects: {}
