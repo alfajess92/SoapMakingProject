@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using Vuforia;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -16,9 +17,8 @@ public class InputManagerLab : MonoBehaviour
     public GlassRod glassRodScript;
     //public SoapCreator soapBarScript;
     public ShowVolumeScript showVolumeScriptLye, ShowVolumeScriptBalance;
+
     
-
-
     public Transform tableTransform;
     //public PanelManagerScript panelManagerScript;
     //public ChatManager chatManagerScript;
@@ -29,6 +29,51 @@ public class InputManagerLab : MonoBehaviour
     public UnityEvent OnClick = new UnityEvent();
 
     public CylinderScript cylinderScript;
+
+    //Elements for the ResultsTable
+    public ExperimentsTable experimentTable;
+    private Transform entryContainer;
+    public Transform entryTemplate;
+    public List<ExperimentsTable.ExperimentEntry> experimentEntriesList;
+    public ExperimentsTable.ExperimentEntry experiment;
+    public List<Transform> entryTransformList;
+
+
+    public float oil;
+    public float lye;
+    public float result;
+
+
+
+    private void Awake()
+    {
+        entryContainer = GameObject.Find("EntryContainer").transform;
+        entryTemplate = GameObject.Find("EntryTemplate").transform;
+        //entryTemplate = transform.Find("EntryTemplate");
+
+        entryTemplate.gameObject.SetActive(false);
+
+        experimentTable = entryContainer.GetComponent<ExperimentsTable>();
+
+        //Creating the experiment entry object (inherited from ExperimentsTable)
+        experiment = new ExperimentsTable.ExperimentEntry { lye=lye, oil=oil, result=result};
+
+        entryTransformList = new List<Transform>();//create the empty list for transform
+
+        //experimentEntriesList = new List<ExperimentsTable.ExperimentEntry>();
+        //{
+        //new ExperimentsTable.ExperimentEntry{ lye=0f, oil=0f, result=100000 },
+        //new ExperimentsTable.ExperimentEntry{ lye=150f, oil=20f, result=200 },
+        //new ExperimentsTable.ExperimentEntry { lye=20f, oil=5f, result=5000 },
+        //};
+        
+
+        //foreach (ExperimentsTable.ExperimentEntry experimentEntry in experimentEntriesList)//cycle to the list
+        //{
+        //    experimentTable.CreateExperimentEntryTransform(experimentEntry, entryContainer, entryTransformList);
+        //}
+
+    }
 
     int counter = 0;
 
@@ -50,8 +95,6 @@ public class InputManagerLab : MonoBehaviour
         saponificationScript = glassRod.GetComponent<SaponificationScript>();
         glassRodScript = glassRod.GetComponent<GlassRod>();
 
-
-
         //cylinder
         cylinderScript = cylinder.GetComponent < CylinderScript>();
         cylinderChat = cylinder.GetComponent<ChatTrigger>();
@@ -71,49 +114,48 @@ public class InputManagerLab : MonoBehaviour
         //if (Input.touchCount>0 && Input.touches[0].phase==TouchPhase.Began)
         if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
         {
-            //Touching the beaker
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == beaker && !cylinderScript.isTouchCylinder&& !glassRodScript.isTouchGlassRod)
-            {
-                beakerChat.TriggerChat();
-                sliderOil.SetActive(true);
-                sliderLye.SetActive(true);
-            }
+                //Touching the beaker
+                if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == beaker && !cylinderScript.isTouchCylinder && !glassRodScript.isTouchGlassRod)
+                {
+                    beakerChat.TriggerChat();
+                    sliderOil.SetActive(true);
+                    sliderLye.SetActive(true);
+                }
 
-            //Choosing the lye and oil
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == cylinder&& !glassRodScript.isTouchGlassRod)
-            {
-                cylinderChat.TriggerChat();
+                //Choosing the lye and oil
+                if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == cylinder && !glassRodScript.isTouchGlassRod)
+                {
+                    cylinderChat.TriggerChat();
 
-                //To desactivate the gameobject 
-                sliderLye.SetActive(false);
-                sliderOil.SetActive(false);
+                    //To desactivate the gameobject 
+                    sliderLye.SetActive(false);
+                    sliderOil.SetActive(false);
+                    cylinderScript.ServeLye();//trigger the animation from script
 
-                cylinderScript.ServeLye();//trigger the animation from script
+                    ////Hinder the interaction with the slider script
+                    //sliderScriptLye.enabled = false;
+                    //sliderScriptOil.enabled = false;
 
-                ////Hinder the interaction with the slider script
-                //sliderScriptLye.enabled = false;
-                //sliderScriptOil.enabled = false;
+                }
 
-            }
+                //Glassrod and calcute soap
+                if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == glassRod && cylinderScript.isTouchCylinder)
+                {
+                    glassRodChat.TriggerChat();
+                    glassRodScript.MoveGlassRod();
 
-            //Glassrod and calcute soap
-            if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == glassRod && cylinderScript.isTouchCylinder)
-            {
-                glassRodChat.TriggerChat();
-                glassRodScript.MoveGlassRod();
-                //Calculate soap after the glassrod finish the animation
-                Invoke("CalculatingSoap", glassRodScript.glassRodClipLength);
+                    //Calculate soap after the glassrod finish the animation
+                    Invoke("CalculatingSoap", glassRodScript.glassRodClipLength);
 
-            }
+                }
 
-            // TODO HideMolecules
+                // TODO HideMolecules
 
-            //Reseting parameters
-            //Create a bottle of soap
-            //Reset the values from slider
-            Invoke("ResetTouchLab", 1.0f);
-            counter++;
-
+                //Reseting parameters
+                //Create a bottle of soap
+                //Reset the values from slider
+                Invoke("ResetTouchLab", 5.0f);
+                //counter++;
         }
 
     }
@@ -127,14 +169,43 @@ public class InputManagerLab : MonoBehaviour
         showVolumeScriptLye.DeleteText();
         print("text deleted");
         ShowVolumeScriptBalance.DeleteText();
-
     }
 
 
     public void CalculatingSoap()
     {
-   
+        //Calculating the amount of soap 
         saponificationScript.CalculatingSoap();
-        //soapBarScript.CreateSoap();
+        
+        //Create reading the results from saponification script
+        ReadExperimentResults();
+        print("this is the resultoooo from experiment" + experiment.result);
+
+        //Creating the entry experiment
+        experimentTable.CreateExperimentEntryTransform(experiment, entryContainer, entryTransformList);
+        //print("this is the resultoooo from experiment" + experiment.result);
+       
     }
+
+    //Function to read the input and results from Saponification script
+    public ExperimentsTable.ExperimentEntry ReadExperimentResults()
+    {
+        //float oil;
+        oil = SaponificationScript.amountOil;
+        print("This is the oil from experiment" + oil);
+
+        //float lye;
+        lye = SaponificationScript.amountLyeUsed ;
+
+        //float result;
+        result=SaponificationScript.amountSoap;
+
+        experiment.lye = lye;
+        experiment.oil = oil;
+        experiment.result = result;
+
+        return experiment;
+    }
+    
+   
 }

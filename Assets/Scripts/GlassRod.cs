@@ -12,14 +12,14 @@ public class GlassRod : MonoBehaviour
     Animator animatorGlassRod;
     public bool isTouchGlassRod = false;
     public float glassRodClipLength;
-  
+    [SerializeField] ScoreBoard scoreBoard;
 
 
     // Start is called before the first frame update
     void Start()
     {
         parentGlassRod = GameObject.Find("Parent_GlassRod");//Find the object with this name in the world
-
+        scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
         animatorGlassRod = parentGlassRod.GetComponent<Animator>();
 
         //Fetch the current Animation clip information for the base layer
@@ -38,9 +38,10 @@ public class GlassRod : MonoBehaviour
     public void MoveGlassRod()
     {
         animatorGlassRod.SetTrigger("Mix");//inside the animator controller
+
         Invoke ("TouchGlassRod", glassRodClipLength);
         //parameter to reset the animation state of glassrod 
-
+        scoreBoard.ScoreSoap();//Increase the Score +1
     }
 
 

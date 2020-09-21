@@ -36,7 +36,7 @@ public class InputManagerProcess : MonoBehaviour
         names =new string[] { "KOH Valve", "Steam" , "Mixer"};
         units =new string[] { "kg/h", "kcal/h", "rpm" };
         var formatter = new BinaryFormatter();
-        FileStream stream = File.OpenRead(Application.dataPath+@"\Process\dataTableSoap");
+        FileStream stream = File.OpenRead(Application.dataPath+@"\\Process\\dataTableSoap");
         Debug.Log("Deserializing vector");
         dataTable = (double[,])formatter.Deserialize(stream);
         stream.Close();

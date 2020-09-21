@@ -10,7 +10,7 @@ public class ScoreBoard : MonoBehaviour
     [SerializeField] int scorePerSoap = 0;//maybe should be in teapot
     public PanelManagerScript panelManagerScript;
     public ChatManager chatManagerScript;
-    public ChatTrigger chatLadle;
+    public ChatTrigger chatObject;
     int score;
     Text scoreText;
 
@@ -47,7 +47,7 @@ public class ScoreBoard : MonoBehaviour
         if (score > 1)
         {
             //TODO find a better way to remove the chat after reaching score+1 which means ladle was touch once.
-            chatLadle.EndChatAfterTouch();
+            chatObject.EndChatAfterTouch();
             print("the chat is gone forever");
 
             //Destroy(GetComponent<ChatTrigger>());

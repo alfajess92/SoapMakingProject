@@ -953,53 +953,6 @@ Transform:
   m_Father: {fileID: 4819927665874748576}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -200.05899, z: 0}
---- !u!1 &667434757
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 667434759}
-  - component: {fileID: 667434758}
-  m_Layer: 0
-  m_Name: StartingChat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &667434758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667434757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89b5ae0ab34749819d94233ed92e5d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chat:
-    sentences:
-    - Welcome to the middle age!
-    - let's start by adding water to the ashes to create lye
---- !u!4 &667434759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667434757}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 663.32697, y: 205.25682, z: -157.36786}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &767795252 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8339935093981919707, guid: 24df369a32b3e4c71a0b2a841807d3a0,
@@ -1134,6 +1087,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7308714092826278041, guid: 4a1e800849cd14dcc87083bf0f645265,
+        type: 3}
+      propertyPath: m_Text
+      value: Let's go to the lab now!
+      objectReference: {fileID: 0}
     - target: {fileID: 7428304482970005476, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1168,6 +1126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NextScenePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 9028088409408249674, guid: 4a1e800849cd14dcc87083bf0f645265,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9028088409408249675, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
@@ -2831,6 +2794,11 @@ PrefabInstance:
     - target: {fileID: 8979796287658832983, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: chatLadle
+      value: 
+      objectReference: {fileID: 1286414717}
+    - target: {fileID: 8979796287658832983, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+        type: 3}
+      propertyPath: chatObject
       value: 
       objectReference: {fileID: 1286414717}
     - target: {fileID: 8979796288344714582, guid: 24df369a32b3e4c71a0b2a841807d3a0,

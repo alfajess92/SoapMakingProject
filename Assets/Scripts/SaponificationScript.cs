@@ -15,8 +15,10 @@ public class SaponificationScript : MonoBehaviour
     public GameObject cylinder, beaker;
     public SliderManager sliderManagerLye, sliderManagerOil;
     public ChatTrigger tagChat, dagChat, monoleinChat, oleicChat, glycerolChat, ohChat, linoleic2Chat;
+    public ExperimentsTable experimentsTableScript;
 
-    float addedVolume;
+
+    //float addedVolume;
 
     //saponification values of oils
     public float sunflowerSV = 0.191f;
@@ -27,10 +29,11 @@ public class SaponificationScript : MonoBehaviour
     public float densityLye = 1.51f;
 
  
-    public float amountLyeUsed;
-    public float amountOil;
+    public static float amountLyeUsed;
+    public static float amountOil;
     public float amountLyeNeeded;
-    public float amountSoap;
+    public static float amountSoap;
+    public float result;
 
     private Vector3 tagOriginalScale, dagOriginalScale, monoleinOriginalScale, linoleicOriginalScale, oleicOriginalScale, glycerolOriginalScale, ohOriginalScale, linoleic2OriginalScale;
     float sizeMolecule = 0.03f;
@@ -62,21 +65,21 @@ public class SaponificationScript : MonoBehaviour
 
     }
  
-
-   public  void CalculatingSoap()
+    public (float, float, float) CalculatingSoap()//Function that returns different values
     {
         addVolumeCylinder = cylinder.GetComponent<AddVolume>();
         addVolumeBeaker = beaker.GetComponent<AddVolume>();
   
         //Evaluate the variables inside to be able to change according to slider which is updated every frame
         amountLyeUsed = addVolumeCylinder.addedVolume;
-
+        
         //print("this is lye"+ addVolumeCylinder.addedVolume);
 
         amountOil = addVolumeBeaker.addedVolume;
         //print("this is oil" + addVolumeBeaker.addedVolume);
 
         amountLyeNeeded = sunflowerSV * amountOil;
+       
 
         //print("this is lye needed" + amountLyeNeeded);
 
@@ -84,12 +87,13 @@ public class SaponificationScript : MonoBehaviour
 
         //print("calculating soap" + amountSoap);
         AnalyzeResult(amountSoap);
+
+        return (amountSoap, amountLyeUsed, amountOil);
     }
 
-    private void AnalyzeResult(float amountSoap)
+    private float AnalyzeResult(float amountSoap)
     {
-        print("analyze soap" + amountSoap);
-
+        //print("analyze soap" + amountSoap);
         //Stoichoimetry cases
 
         //No Soap
@@ -244,13 +248,11 @@ public class SaponificationScript : MonoBehaviour
         //Reset the values from slider to try again this reset the transform of the glass
 
         Invoke("CleanSlider", 2.0f);
-        
         Invoke("ResetMolecules", 10.0f);
-    
         Invoke("CleanResult", 10.0f);
-        
-    }
 
+        return result;
+    }
 
     public void CleanSlider()
     {
@@ -289,6 +291,17 @@ public class SaponificationScript : MonoBehaviour
         resultText.text = "   ";
         print("cleaning result");
     }
+
+    //experimentsTableScript.CreateExperimentEntryTransform();
+
+    //    private class ExperimentEntry
+    //{
+    //    public float oil;
+    //    public float lye;
+    //    public float result;
+
+    //}
+
 }
 
 
