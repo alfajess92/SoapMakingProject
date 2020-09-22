@@ -31,6 +31,7 @@ public class SaponificationScript : MonoBehaviour
  
     public static float amountLyeUsed;
     public static float amountOil;
+    public static float amountLyeExcess;
     public float amountLyeNeeded;
     public static float amountSoap;
     public float result;
@@ -65,7 +66,7 @@ public class SaponificationScript : MonoBehaviour
 
     }
  
-    public (float, float, float) CalculatingSoap()//Function that returns different values
+    public (float, float, float, float) CalculatingSoap()//Function that returns different values
     {
         addVolumeCylinder = cylinder.GetComponent<AddVolume>();
         addVolumeBeaker = beaker.GetComponent<AddVolume>();
@@ -79,16 +80,21 @@ public class SaponificationScript : MonoBehaviour
         //print("this is oil" + addVolumeBeaker.addedVolume);
 
         amountLyeNeeded = sunflowerSV * amountOil;
-       
 
         //print("this is lye needed" + amountLyeNeeded);
 
+        //amountLyeExcess = amountLyeUsed - amountLyeNeeded;
+        amountLyeExcess = amountLyeNeeded - amountLyeUsed;
+        print("this is excess lye " + amountLyeExcess);
+
         amountSoap = amountLyeUsed * 100 / amountLyeNeeded;
+
+
 
         //print("calculating soap" + amountSoap);
         AnalyzeResult(amountSoap);
 
-        return (amountSoap, amountLyeUsed, amountOil);
+        return (amountSoap, amountLyeUsed, amountOil, amountLyeExcess);
     }
 
     private float AnalyzeResult(float amountSoap)

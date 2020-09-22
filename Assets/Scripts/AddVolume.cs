@@ -22,7 +22,6 @@ public class AddVolume : MonoBehaviour
     {
 
         liquidMeshTransform= container.transform.Find("Liquid");
-
         originalScale = liquidMeshTransform.localScale;
         print("originalScale");
     }
@@ -53,6 +52,7 @@ public void ReadVolume()
         addedVolume = MySlider.value*100*factorVolume;//to multiply the factor of the slider for "real" volume
     }
 
+//Create a list of values added 
 
 public void DeleteVolume()
     {

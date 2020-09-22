@@ -42,7 +42,7 @@ public class InputManagerLab : MonoBehaviour
     public float oil;
     public float lye;
     public float result;
-
+    public float excess;
 
 
     private void Awake()
@@ -56,7 +56,7 @@ public class InputManagerLab : MonoBehaviour
         experimentTable = entryContainer.GetComponent<ExperimentsTable>();
 
         //Creating the experiment entry object (inherited from ExperimentsTable)
-        experiment = new ExperimentsTable.ExperimentEntry { lye=lye, oil=oil, result=result};
+        experiment = new ExperimentsTable.ExperimentEntry { lye=lye, oil=oil, result=result, excess=excess};
 
         entryTransformList = new List<Transform>();//create the empty list for transform
 
@@ -179,7 +179,7 @@ public class InputManagerLab : MonoBehaviour
         
         //Create reading the results from saponification script
         ReadExperimentResults();
-        print("this is the resultoooo from experiment" + experiment.result);
+        //print("this is the resultoooo from experiment" + experiment.result);
 
         //Creating the entry experiment
         experimentTable.CreateExperimentEntryTransform(experiment, entryContainer, entryTransformList);
@@ -192,7 +192,7 @@ public class InputManagerLab : MonoBehaviour
     {
         //float oil;
         oil = SaponificationScript.amountOil;
-        print("This is the oil from experiment" + oil);
+        //print("This is the oil from experiment" + oil);
 
         //float lye;
         lye = SaponificationScript.amountLyeUsed ;
@@ -200,9 +200,15 @@ public class InputManagerLab : MonoBehaviour
         //float result;
         result=SaponificationScript.amountSoap;
 
+        //float lye excess
+        excess = SaponificationScript.amountLyeExcess;
+        print("this is excess lye" + excess);
+
+
         experiment.lye = lye;
         experiment.oil = oil;
         experiment.result = result;
+        experiment.excess = excess;
 
         return experiment;
     }

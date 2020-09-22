@@ -52,7 +52,7 @@ public class ExperimentsTable : MonoBehaviour
         switch (rank)
         {
             default:
-                rankString = rank + "TH"; break;
+                rankString = rank + "th"; break;
 
             case 1: rankString = "1st"; break;
             case 2: rankString = "2nd"; break;
@@ -62,15 +62,44 @@ public class ExperimentsTable : MonoBehaviour
 
         entryTransform.Find("experiment").GetComponent<Text>().text = rankString;
 
-        float oil = experimentEntry.oil;//TODO read volume from slider/saponification script
-        entryTransform.Find("Oil").GetComponent<Text>().text = oil.ToString("F1");
+        //amount of oil
+        float oil = experimentEntry.oil;// read volume from slider/saponification script
+        entryTransform.Find("Oil").GetComponent<Text>().text = oil.ToString("F1") + " " + "g ";
 
-        float lye = experimentEntry.lye;//TODO read volume from slider 
-        entryTransform.Find("Lye").GetComponent<Text>().text = lye.ToString("F1");
 
-        float result = experimentEntry.result; //TODO from Saponification Script, result text
-        entryTransform.Find("Result").GetComponent<Text>().text = result.ToString("F1");
+        //amount of lye
+        float lye = experimentEntry.lye;
+        entryTransform.Find("Lye").GetComponent<Text>().text = lye.ToString("F1")+ " " + "g ";
 
+        //Result or amount of soap
+        float result = experimentEntry.result;// from Saponification Script, result text
+        float x;
+        if (result >=100)
+        {
+            x = 100f;
+        }
+        else 
+        {
+            x = experimentEntry.result;
+        }
+
+        entryTransform.Find("Result").GetComponent<Text>().text = x.ToString("F1") + " " + "% ";
+
+        //Excess of lye used
+
+        float excess = experimentEntry.excess; // from Saponification Script, result text
+        float y;
+        if (excess<0)//
+        {
+            y = experimentEntry.excess;
+        }
+        else 
+        {
+            y = 0f;
+        }
+
+
+        entryTransform.Find("ExcessLye").GetComponent<Text>().text = y.ToString("F1") + " " + "g ";
 
         transformList.Add(entryTransform);
     }
@@ -83,6 +112,7 @@ public class ExperimentsTable : MonoBehaviour
         public float oil;
         public float lye;
         public float result;
+        public float excess;
 
     }
 

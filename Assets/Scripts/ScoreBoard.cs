@@ -24,7 +24,7 @@ public class ScoreBoard : MonoBehaviour
     void Start()
     {
         scoreText = GetComponent<Text>();
-        scoreText.text = "Score: "+ score.ToString();
+        scoreText.text = "Number of Soaps:"+" "+ score.ToString();
         //winningChat = FindObjectOfType<ChatTrigger>();
     }
 
@@ -32,11 +32,11 @@ public class ScoreBoard : MonoBehaviour
     public void ScoreSoap()
     {
         score += scorePerSoap;
-        scoreText.text = "Score: +" + score.ToString();
+        scoreText.text = "Number of Soaps:"+" " + score.ToString();
         //winningChat.TriggerChat();
         StopChat();
         print("the chat is gone forever");
-        Invoke("NextLevel", 5f);//parameterise time
+        Invoke("NextLevel", 8f);//parameterise time
         //NextLevel();
 
     }

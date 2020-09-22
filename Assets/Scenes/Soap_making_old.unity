@@ -286,7 +286,7 @@ MonoBehaviour:
   chat:
     sentences:
     - Be careful the oil is hot!
-    - Know is it time to add water to the ashes to create lye.
+    - It is time to add water to the ashes to create lye.
 --- !u!82 &113474220
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2780,6 +2780,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -77.83984
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560327863197014146, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00010395
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560327863197014146, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 102.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560327863197014146, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560327863197014146, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 339.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 8979796287658832976, guid: 24df369a32b3e4c71a0b2a841807d3a0,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8979796287658832983, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
