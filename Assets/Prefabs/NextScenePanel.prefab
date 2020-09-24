@@ -113,7 +113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4, y: -222}
+  m_AnchoredPosition: {x: -1.0089, y: -288}
   m_SizeDelta: {x: -1201.4, y: -665.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8204415057356933644
@@ -194,7 +194,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9010978527829245221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: LoadPreviousScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4203405601762701748
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,8 +240,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.4956913, y: 163.3}
-  m_SizeDelta: {x: 423, y: 271.7}
+  m_AnchoredPosition: {x: 12.3, y: 260.1}
+  m_SizeDelta: {x: 655.5, y: 230.2}
   m_Pivot: {x: 0.5154217, y: 0.4999998}
 --- !u!222 &1002798777134221169
 CanvasRenderer:
@@ -271,7 +282,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Now you can continue or retry to do soap from ashes
+  m_Text: Let's go to the lab now!
 --- !u!1 &5038520238537345388
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,8 +319,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4, y: 24}
-  m_SizeDelta: {x: -1201.4, y: -665.8}
+  m_AnchoredPosition: {x: 2.1911, y: -27}
+  m_SizeDelta: {x: -1195, y: -665.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &553561160380069252
 CanvasRenderer:
@@ -389,7 +400,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8382025367313344281}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: LoadNextScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5839261505742942578
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +500,7 @@ GameObject:
   - component: {fileID: 9028088409408249675}
   - component: {fileID: 9028088409408249673}
   - component: {fileID: 9028088409408249672}
+  - component: {fileID: 1292972303}
   m_Layer: 5
   m_Name: NextScenePanel
   m_TagString: Untagged
@@ -543,3 +566,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1292972303
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028088409408249674}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83949fd2053ee4496b49f6218a2afab9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

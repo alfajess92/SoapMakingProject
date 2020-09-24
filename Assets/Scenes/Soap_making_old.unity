@@ -1059,78 +1059,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5472394340880915445, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5472394340880915445, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5472394340880915445, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5472394340880915445, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 995128606}
-    - target: {fileID: 5472394340880915445, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadPreviousScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 5472394340880915445, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7308714092826278041, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_Text
-      value: Let's go to the lab now!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428304482970005476, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428304482970005476, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428304482970005476, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428304482970005476, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 995128606}
     - target: {fileID: 7428304482970005476, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadNextScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428304482970005476, guid: 4a1e800849cd14dcc87083bf0f645265,
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 995128606}
+    - target: {fileID: 8745394255170611458, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: m_AnchoredPosition.x
+      value: -1.0089111
       objectReference: {fileID: 0}
     - target: {fileID: 9028088409408249674, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
       propertyPath: m_Name
       value: NextScenePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 9028088409408249674, guid: 4a1e800849cd14dcc87083bf0f645265,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9028088409408249675, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
@@ -1502,31 +1447,12 @@ MonoBehaviour:
     - 'This is getting really hot! '
     - 'Saponification is happening! '
     - Keep mixing to make more soap.
---- !u!1 &1292972302 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9028088409408249674, guid: 4a1e800849cd14dcc87083bf0f645265,
+--- !u!95 &1292972303 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1292972303, guid: 4a1e800849cd14dcc87083bf0f645265,
     type: 3}
   m_PrefabInstance: {fileID: 1087539301}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1292972303
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292972302}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 83949fd2053ee4496b49f6218a2afab9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1310518984
 MonoBehaviour:
   m_ObjectHideFlags: 0
