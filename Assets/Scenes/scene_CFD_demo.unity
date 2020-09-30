@@ -2630,6 +2630,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8208753332017159998, guid: 3782d78110d8d4c3f955b9a39f45433e,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1668933004}
     - target: {fileID: 8208753332017159999, guid: 3782d78110d8d4c3f955b9a39f45433e,
         type: 3}
       propertyPath: m_Name
@@ -8576,7 +8581,7 @@ PrefabInstance:
     - target: {fileID: 2971324551832238835, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2971324551832238844, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
@@ -8771,7 +8776,7 @@ PrefabInstance:
     - target: {fileID: 8979796287658832982, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8979796288344714580, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
@@ -10925,6 +10930,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668067967}
   m_CullTransparentMesh: 0
+--- !u!95 &1668933004 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1292972303, guid: 4a1e800849cd14dcc87083bf0f645265,
+    type: 3}
+  m_PrefabInstance: {fileID: 1087539301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!21 &1672003513
 Material:
   serializedVersion: 6

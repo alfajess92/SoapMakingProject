@@ -16,13 +16,12 @@ PlayerSettings:
   productName: Soap_Making_t1
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.009433985, g: 0.009433985, b: 0.009433985,
-    a: 1}
+  m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
-  m_SplashScreenLogoStyle: 1
+  m_SplashScreenLogoStyle: 0
   m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
@@ -43,9 +42,11 @@ PlayerSettings:
   m_SplashScreenLogos:
   - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
     duration: 2
-  - logo: {fileID: 21300000, guid: a27323519d1644d48ad1be79640f64f0, type: 3}
+  - logo: {fileID: 21300000, guid: 5a74d29631c6b4b329adb3ab1b4ed191, type: 3}
     duration: 2
-  - logo: {fileID: 21300000, guid: 27ddc4184f6154265b0264a57575acf3, type: 3}
+  - logo: {fileID: 21300000, guid: ae5f63c61676446588b84a0f714e8ab9, type: 3}
+    duration: 2
+  - logo: {fileID: 21300000, guid: 06db399f10b8344a79058382c6eeb837, type: 3}
     duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
