@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scorePerSoap: 1
-  panelManagerScript: {fileID: 0}
+  panelManagerScript: {fileID: 890750063}
   chatManagerScript: {fileID: 750361344}
   chatObject: {fileID: 2076333155}
 --- !u!1 &91569391 stripped
@@ -6545,6 +6545,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48cc6af30d598441e98dcfeb93435b1d, type: 3}
+--- !u!114 &890750063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5900376490441270041, guid: 48cc6af30d598441e98dcfeb93435b1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 890750062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586db5c080a194edba6a40f0effa929e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &927955733 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6236486309185977554, guid: e3fc27bc11449422591bbd2112e21ccc,
