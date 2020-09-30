@@ -10,7 +10,7 @@ using System;
 
 public class InputManagerProcess : MonoBehaviour
 {
-    public Camera MainCamera;
+   // public Camera MainCamera;
     public GameObject KOHValve;
     public GameObject Steam;
     public GameObject Mixer;
@@ -20,6 +20,11 @@ public class InputManagerProcess : MonoBehaviour
     public TMPro.TextMeshProUGUI valueText;
     public TMPro.TextMeshProUGUI temperatureText;
     public TMPro.TextMeshProUGUI soapText;
+    public double soapValue;
+    public double soapValueTotal=0.6;
+    public double soapValueLimit;
+    public GameObject nextScenePanel;
+    public TMPro.TextMeshProUGUI totalSoapText;
 
     double[,] dataTable;
     float[] values;
@@ -36,7 +41,7 @@ public class InputManagerProcess : MonoBehaviour
         names =new string[] { "KOH Valve", "Steam" , "Mixer"};
         units =new string[] { "kg/h", "kcal/h", "rpm" };
         var formatter = new BinaryFormatter();
-        FileStream stream = File.OpenRead(Application.dataPath+@"\\Process\\dataTableSoap");
+        FileStream stream = File.OpenRead(Application.dataPath+ System.IO.Path.DirectorySeparatorChar +"Process"+ System.IO.Path.DirectorySeparatorChar + "dataTableSoap");
         Debug.Log("Deserializing vector");
         dataTable = (double[,])formatter.Deserialize(stream);
         stream.Close();
@@ -48,34 +53,49 @@ public class InputManagerProcess : MonoBehaviour
         selectables.Add(KOHValve);
         selectables.Add(Steam);
         selectables.Add(Mixer);
-        selectedIndex = 100;
-        
-        Select(KOHValve);
+        selectedIndex = 0;
+
+
+        slider.gameObject.SetActive(false);
+
+        foreach (GameObject selected in selectables)
+                { UnSelect(selected); }
+        //Select(KOHValve);
         Recompute();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(values[selectedIndex] != slider.value)
+        soapValueTotal += soapValue * Time.deltaTime;
+        totalSoapText.text = "Soap produced: " + soapValueTotal.ToString("0") + "/" + soapValueLimit.ToString("0") + "kg" ;
+        if (soapValueTotal> soapValueLimit)
         {
-            values[selectedIndex] = slider.value;
-            Recompute();
-        }
-
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit Hit;
-
-        if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
+            slider.gameObject.SetActive(false);
+            nextScenePanel.SetActive(true); }
+        else 
         {
-            foreach (GameObject obj in selectables)
+            if (values[selectedIndex] != slider.value)
             {
-                if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == obj && !IsSelected(obj))
+                values[selectedIndex] = slider.value;
+                Recompute();
+            }
+
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit Hit;
+
+            if (Input.GetMouseButtonDown(0))//zero refers to the right click of the mouse
+            {
+                foreach (GameObject obj in selectables)
                 {
-                    Select(obj);
+                    if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject == obj && !IsSelected(obj))
+                    {
+                        Select(obj);
+                    }
                 }
             }
         }
+        
     }
 
     void UnSelect(GameObject gameObject)
@@ -83,22 +103,32 @@ public class InputManagerProcess : MonoBehaviour
         if(gameObject==KOHValve || gameObject == Mixer)
         {
             Material[] materials = gameObject.GetComponent<MeshRenderer>().sharedMaterials;
-            materials[materials.Length - 1].SetFloat("_FirstOutlineWidth", 0);
-            materials[materials.Length - 1].SetFloat("_SecondOutlineWidth", 0);
+            //materials[materials.Length - 1].SetFloat("_FirstOutlineWidth", 0);
+            //materials[materials.Length - 1].SetFloat("_SecondOutlineWidth", 0);
+            materials[materials.Length - 1].SetColor("_FirstOutlineColor", new Color(0.4f, 1, 0.4f));
+            materials[materials.Length - 1].SetColor("_SecondOutlineColor", new Color(0.4f, 1, 0.4f));
+            //materials[materials.Length - 1].SetFloat("_FirstOutlineWidth", 25);
+            //materials[materials.Length - 1].SetFloat("_SecondOutlineWidth", 25);
+
         }
         else if (gameObject== Steam)
-        { gameObject.GetComponent<ParticleSystem>().startColor = new Color(1, 1, 1); }
+        { gameObject.GetComponent<ParticleSystem>().startColor = new Color(0.4f, 1, 0.4f); }
     }
 
     void Select(GameObject gameObject)
     {
-        foreach(GameObject obj in selectables) { UnSelect(obj); }
+        gameObject.GetComponent<ChatTrigger>().TriggerChat();
+        slider.gameObject.SetActive(true);
+
+        foreach (GameObject obj in selectables) { UnSelect(obj); }
 
         if (gameObject == KOHValve || gameObject == Mixer)
         {
             Material[] materials = gameObject.GetComponent<MeshRenderer>().sharedMaterials;
-            materials[materials.Length - 1].SetFloat("_FirstOutlineWidth", 25);
-            materials[materials.Length - 1].SetFloat("_SecondOutlineWidth", 25);
+            materials[materials.Length - 1].SetColor("_FirstOutlineColor", new Color(1, 1, 0.4f));
+            materials[materials.Length - 1].SetColor("_SecondOutlineColor", new Color(1, 1, 0.4f));
+            //materials[materials.Length - 1].SetFloat("_FirstOutlineWidth", 25);
+            //materials[materials.Length - 1].SetFloat("_SecondOutlineWidth", 25);
         }
         else if (gameObject == Steam)
         { gameObject.GetComponent<ParticleSystem>().startColor = new Color(1, 1, 0); }
@@ -108,7 +138,7 @@ public class InputManagerProcess : MonoBehaviour
 
         titleText.text = names[selectedIndex];
         slider.value = values[selectedIndex];
-        valueText.text = DisplayValue(gameObject,values[selectedIndex]).ToString("G") + " " + units[selectedIndex];
+        valueText.text = DisplayValue(gameObject,values[selectedIndex]).ToString("0.0") + " " + units[selectedIndex];
 
     }
     bool IsSelected(GameObject gameObject)
@@ -118,7 +148,7 @@ public class InputManagerProcess : MonoBehaviour
     }
     void Recompute() 
     {
-        valueText.text = DisplayValue(selectables[selectedIndex],values[selectedIndex]).ToString() + " " + units[selectedIndex];
+        valueText.text = DisplayValue(selectables[selectedIndex],values[selectedIndex]).ToString("0.0") + " " + units[selectedIndex];
 
         double[] realValues= new double[3];
         double oldDist=Math.Pow(10,10); double newDist; int index=0;
@@ -134,8 +164,9 @@ public class InputManagerProcess : MonoBehaviour
             if (newDist < oldDist) { oldDist = newDist; index = i; }
         }
 
-        temperatureText.text = "Temperature: \n " + dataTable[index, 4].ToString("G");
-        soapText.text = "Soap flow: \n " + dataTable[index, 3].ToString("G");
+        soapValue = dataTable[index, 3] * 360;
+        temperatureText.text = "Temperature: \n " + dataTable[index, 4].ToString("0.0")+"C";
+        soapText.text = "Soap flow: \n " + soapValue.ToString("0.000")+ "kg/h";
 //        Debug.Log(dataTable[index, 3]);
 //        Debug.Log(dataTable[index, 4]);
 

@@ -9,6 +9,9 @@ TagManager:
   - WoodSaucer
   - Ladle
   - Boiler
+  - Coronita
+  - Clean
+  - Soapy
   layers:
   - Default
   - TransparentFX

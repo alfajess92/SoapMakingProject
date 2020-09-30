@@ -61,7 +61,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
-    - _FirstOutlineWidth: 0
+    - _FirstOutlineWidth: 25
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
@@ -69,14 +69,14 @@ Material:
     - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SecondOutlineWidth: 0
+    - _SecondOutlineWidth: 25
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0.6792453, g: 0.5786356, b: 0.086507656, a: 0}
+    - _Color: {r: 0.9622642, g: 0.82203853, b: 0.23148806, a: 1}
     - _EmissionColor: {r: 0.18649256, g: 0.18649256, b: 0, a: 1}
-    - _FirstOutlineColor: {r: 0.9827945, g: 1, b: 0, a: 0.5}
-    - _SecondOutlineColor: {r: 1, g: 0.9795613, b: 0, a: 1}
+    - _FirstOutlineColor: {r: 0.4, g: 1, b: 0.4, a: 1}
+    - _SecondOutlineColor: {r: 0.4, g: 1, b: 0.4, a: 1}
