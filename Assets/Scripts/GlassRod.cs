@@ -12,14 +12,14 @@ public class GlassRod : MonoBehaviour
     Animator animatorGlassRod;
     public bool isTouchGlassRod = false;
     public float glassRodClipLength;
-    [SerializeField] ScoreBoard scoreBoard;
+    [SerializeField] ScoreBoardLab scoreBoard;
 
 
     // Start is called before the first frame update
     void Start()
     {
         parentGlassRod = GameObject.Find("Parent_GlassRod");//Find the object with this name in the world
-        scoreBoard = FindObjectOfType<ScoreBoard>();//too look the scoreboard in the world
+        scoreBoard = FindObjectOfType<ScoreBoardLab>();//too look the scoreboard in the world
         animatorGlassRod = parentGlassRod.GetComponent<Animator>();
 
         //Fetch the current Animation clip information for the base layer
