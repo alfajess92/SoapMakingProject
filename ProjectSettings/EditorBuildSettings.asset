@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/2DStartScene/2dStart.unity
+    path: Assets/Scenes/2dStart.unity
     guid: 0047bea1f6d9c924485f167f4cd61c2f
   - enabled: 1
     path: Assets/Scenes/Soap_making_old.unity
@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Process/Soap_making_plant.unity
     guid: 5da8594aa525c458a8bdb1446941a186
   - enabled: 1
-    path: Assets/2DFinalScene/2dFinal.unity
+    path: Assets/Scenes/2dFinal.unity
     guid: 3bb5a70b458983549aa84bb143f20a89
   - enabled: 0
     path: Assets/Scenes/CFD_scene_final_demo.unity
