@@ -248,7 +248,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Score
+  m_Text: 'Number of Soaps:'
 --- !u!114 &8979796287658832983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,22 +431,22 @@ PrefabInstance:
     - target: {fileID: 4062172660890940294, guid: f5d9746585adb40dd94ad0dfc29ff936,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -146.3
+      value: -182
       objectReference: {fileID: 0}
     - target: {fileID: 4062172660890940294, guid: f5d9746585adb40dd94ad0dfc29ff936,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -118.02
+      value: -125
       objectReference: {fileID: 0}
     - target: {fileID: 4062172660890940294, guid: f5d9746585adb40dd94ad0dfc29ff936,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 138.12
+      value: 111.6
       objectReference: {fileID: 0}
     - target: {fileID: 4062172660890940294, guid: f5d9746585adb40dd94ad0dfc29ff936,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 43.84
+      value: 64.2
       objectReference: {fileID: 0}
     - target: {fileID: 4062172660890940294, guid: f5d9746585adb40dd94ad0dfc29ff936,
         type: 3}
