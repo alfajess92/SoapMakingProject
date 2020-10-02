@@ -5,16 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/2dStart.unity
     guid: 0047bea1f6d9c924485f167f4cd61c2f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Soap_making_old.unity
     guid: 66acf38196ba14f8cb86ad6d0c471392
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Soap_making_lab.unity
     guid: 0105a97546fa1481b9bb08d5671ae344
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/scene_CFD_demo.unity
     guid: e1c7db50375f8444f89e7a82db80ff87
   - enabled: 1
@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/2dFinal.unity
     guid: 3bb5a70b458983549aa84bb143f20a89
   - enabled: 0
-    path: Assets/Scenes/CFD_scene_final_demo.unity
-    guid: ce52ca0d42d59bb4681d9530c7ec57f4
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

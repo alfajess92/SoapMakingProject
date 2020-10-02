@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
+//using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 using System.IO;
@@ -23,7 +23,7 @@ public class InputManagerProcess : MonoBehaviour
     public double soapValue;
     public double soapValueTotal=0.6;
     public double soapValueLimit;
-    public GameObject nextScenePanel;
+    //public GameObject nextScenePanel;
     public TMPro.TextMeshProUGUI totalSoapText;
     public PanelManagerScript panelManagerScript;
 
