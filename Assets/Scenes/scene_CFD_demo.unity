@@ -1268,6 +1268,13 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   cylinderScript: {fileID: 0}
+  experimentTable: {fileID: 0}
+  entryTemplate: {fileID: 0}
+  entryTransformList: []
+  oil: 0
+  lye: 0
+  result: 0
+  excess: 0
 --- !u!1 &170971615
 GameObject:
   m_ObjectHideFlags: 0
@@ -7110,6 +7117,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1239960716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6885829930733687401, guid: c6d32bb4f937c4b1fa8d65b52debe22f,
+    type: 3}
+  m_PrefabInstance: {fileID: 629866408}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebcbd629de74548a4b426cb9381ffd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1247865942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8261,24 +8280,24 @@ PrefabInstance:
     - target: {fileID: 2971324551832238834, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: chat.sentences.Array.data[0]
-      value: "Let's learn how to desing an industrial reactor of liquid soap with
+      value: "Let's learn how to design an industrial reactor of liquid soap with
         computer simulations!\r"
       objectReference: {fileID: 0}
     - target: {fileID: 2971324551832238834, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: chat.sentences.Array.data[1]
-      value: "(1) Before up and running, let's explore tank and its internal structures!\r\n"
+      value: (1) Before up and running, let's explore the tank and its internal structures!
       objectReference: {fileID: 0}
     - target: {fileID: 2971324551832238834, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: chat.sentences.Array.data[2]
-      value: (2) After run a simulation to figure out the optimal desing parameters.
+      value: (2) After running a simulation to figure out the optimal design parameters.
         Click on run!
       objectReference: {fileID: 0}
     - target: {fileID: 2971324551832238834, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: chat.sentences.Array.data[3]
-      value: '(3) Finally, explore simulation results: Time, power and mixing process...'
+      value: '(3) Finally, explore simulation results: time, power, and mixing process...'
       objectReference: {fileID: 0}
     - target: {fileID: 2971324551832238834, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
@@ -8323,7 +8342,7 @@ PrefabInstance:
     - target: {fileID: 2971324551832238835, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2971324551832238844, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
@@ -8518,7 +8537,7 @@ PrefabInstance:
     - target: {fileID: 8979796287658832982, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8979796288344714580, guid: 24df369a32b3e4c71a0b2a841807d3a0,
         type: 3}
@@ -11346,7 +11365,7 @@ GameObject:
   - component: {fileID: 1776774189}
   - component: {fileID: 1776774188}
   m_Layer: 5
-  m_Name: button_next_scene (1)
+  m_Name: button_retry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11415,8 +11434,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6885829930733687401, guid: c6d32bb4f937c4b1fa8d65b52debe22f,
-          type: 3}
+      - m_Target: {fileID: 1239960716}
         m_MethodName: LoadPreviousScene
         m_Mode: 1
         m_Arguments:
@@ -12045,8 +12063,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6885829930733687401, guid: c6d32bb4f937c4b1fa8d65b52debe22f,
-          type: 3}
+      - m_Target: {fileID: 1239960716}
         m_MethodName: LoadNextScene
         m_Mode: 1
         m_Arguments:
