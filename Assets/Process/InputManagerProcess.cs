@@ -25,6 +25,8 @@ public class InputManagerProcess : MonoBehaviour
     public double soapValueLimit;
     public GameObject nextScenePanel;
     public TMPro.TextMeshProUGUI totalSoapText;
+    public PanelManagerScript panelManagerScript;
+
 
     double[,] dataTable;
     float[] values;
@@ -72,7 +74,9 @@ public class InputManagerProcess : MonoBehaviour
         if (soapValueTotal> soapValueLimit)
         {
             slider.gameObject.SetActive(false);
-            nextScenePanel.SetActive(true); }
+            //nextScenePanel.SetActive(true);
+            panelManagerScript.EnterNextScenePanel();
+        }
         else 
         {
             if (values[selectedIndex] != slider.value)
