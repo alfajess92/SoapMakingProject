@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿//using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.Assertions.Must;
@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System;
+using UnityEngine.Networking;
 
 public class InputManagerProcess : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class InputManagerProcess : MonoBehaviour
     //public GameObject nextScenePanel;
     public TMPro.TextMeshProUGUI totalSoapText;
     public PanelManagerScript panelManagerScript;
+    public TextAsset dataAsset;
 
 
     double[,] dataTable;
@@ -37,16 +39,80 @@ public class InputManagerProcess : MonoBehaviour
     int selectedIndex;
 
     // Start is called before the first frame update
+    [Obsolete]
     void Start()
     {
         values =new float[] { 0, 0, 0 };
         names =new string[] { "KOH Valve", "Steam" , "Mixer"};
         units =new string[] { "kg/h", "kcal/h", "rpm" };
         var formatter = new BinaryFormatter();
-        FileStream stream = File.OpenRead(Application.dataPath+ System.IO.Path.DirectorySeparatorChar +"Process"+ System.IO.Path.DirectorySeparatorChar + "dataTableSoap");
-        Debug.Log("Deserializing vector");
-        dataTable = (double[,])formatter.Deserialize(stream);
-        stream.Close();
+        //FileStream stream = File.OpenRead(Application.dataPath+ System.IO.Path.DirectorySeparatorChar +"Process"+ System.IO.Path.DirectorySeparatorChar + "dataTableSoap");
+        //FileStream stream = File.OpenRead(Application.streamingAssetsPath + System.IO.Path.DirectorySeparatorChar + "dataTableSoap");
+        //var path = "jar:file://" + Application.streamingAssetsPath + "!/assets/" + System.IO.Path.DirectorySeparatorChar + "dataTableSoap";
+        //var path = "jar:file://" + Application.streamingAssetsPath + Path.DirectorySeparatorChar + "dataTableSoap";
+
+        //For Android
+        //string path = Path.Combine("jar:file://" + Application.streamingAssetsPath + "!/assets/"+ "dataTableSoap");
+
+
+        //Debug.Log("Deserializing vector");
+
+        //Testing for android
+ /*       string sFilePath = Path.Combine(Application.streamingAssetsPath + Path.DirectorySeparatorChar + "dataTableSoap");
+        //string sFilePathAndroid = Path.Combine("jar:file://" +Application.dataPath + Path.DirectorySeparatorChar + "Process" + Path.DirectorySeparatorChar + "dataTableSoap");
+        string sFilePathAndroid = Path.Combine("jar:file://" + Application.streamingAssetsPath + Path.DirectorySeparatorChar + "dataTableSoap");
+
+        print(sFilePath);
+        string sData;
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            UnityWebRequest www = UnityWebRequest.Get(sFilePathAndroid);
+            www.SendWebRequest();
+            while (!www.isDone) ;
+            sData = www.downloadHandler.text;
+        }
+        //else sData= File.ReadAllText(sFilePath);
+        else sData = sFilePath;
+        print(sData);
+
+        FileStream stream = File.OpenRead(sData);
+
+        */
+        
+
+        string item = "data/dataTableSoap";
+
+        string androidFilePath = System.IO.Path.Combine(Application.streamingAssetsPath, item);
+        // string androidFilePath = Application.streamingAssetsPath +"/"+ item;
+      /*  string jsonstring;
+
+        if(Application.platform==RuntimePlatform.Android)
+        { WWW reader = new WWW(androidFilePath);
+            while (!reader.isDone) { }
+
+            jsonstring = reader.text;
+        }
+        else
+        {
+            jsonstring = androidFilePath;
+        }
+        */
+
+        //TextAsset allData = Resources.Load("Data" + Path.DirectorySeparatorChar + "dataTableSoap") as UnityEngine.TextAsset;
+        //temperatureText.text = allData.text;
+        BinaryFormatter br = new BinaryFormatter();
+        dataTable = (double[,])br.Deserialize(new MemoryStream(dataAsset.bytes));
+
+        //FileStream stream = allData.bytes;
+        //dataTable = (double[,])allData.bytes;
+        //Debug.Log(jsonstring);
+
+        //FileStream stream = File.Open(jsonstring, FileMode.Open);
+        //dataTable = (double[,])formatter.Deserialize(stream);
+        //stream.Close();
+
+
+        //dataTable = new double[,] { { 3, 3, 3, 0, 0 }, { 3, 3, 3, 0, 0 } };
 
         /*  ParticleSystem ps = Steam.GetComponent<ParticleSystem>();
           ParticleSystem.MainModule mainSteam = ps.main;
@@ -161,8 +227,9 @@ public class InputManagerProcess : MonoBehaviour
         {
             realValues[i] = RealValue(selectables[i], values[i]);
         }
+        for (int i = 0; i <= dataTable.GetUpperBound(0); i++)
+        //foreach (int i in System.Linq.Enumerable.Range(0, 1000))
 
-        foreach (int i in System.Linq.Enumerable.Range(0, 1000))
         {
             newDist = Math.Pow(realValues[0]-dataTable[i, 0],2) + Math.Pow(realValues[1]-dataTable[i, 1],2) + Math.Pow(realValues[2]-dataTable[i, 2],2);
             if (newDist < oldDist) { oldDist = newDist; index = i; }
