@@ -7874,7 +7874,7 @@ PrefabInstance:
     - target: {fileID: 7308714092826278041, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
       propertyPath: m_Text
-      value: Awesome! We have enough soap to wash out this virus!
+      value: Awesome! We have enough soap!
       objectReference: {fileID: 0}
     - target: {fileID: 7428304482970005476, guid: 4a1e800849cd14dcc87083bf0f645265,
         type: 3}
